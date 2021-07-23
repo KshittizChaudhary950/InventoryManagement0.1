@@ -148,7 +148,7 @@ namespace InventoryManagement0._1
         {
             // working on update 
             SqlConnection con = new SqlConnection(cs);
-            string query = "Update Employee set Firstname=@firstname, Lastname=@lastname,username=@username, password=@password, email=@email, contact=@contact where Id=@id";
+            string query = "Update Registration set Firstname=@firstname, Lastname=@lastname,username=@username, password=@password, email=@email, contact=@contact where Id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id",IDnumericUpDown.Value);
             cmd.Parameters.AddWithValue("@firstname", FirstNametxt.Text);
@@ -162,27 +162,34 @@ namespace InventoryManagement0._1
             con.Open();
 
 
-
-            try
+            if (IDnumericUpDown.Value != 0)
             {
-                int a = cmd.ExecuteNonQuery();
-                if (a > 0)
-                {
 
-                    MessageBox.Show("Update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                 
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+
+                        MessageBox.Show("Update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Update is fail", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    }
                 }
-
-                else
+                catch (Exception)
                 {
-                    MessageBox.Show("Update is fail", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
 
+                    MessageBox.Show("Please fill up all field");
                 }
             }
-            catch (Exception)
+            else
             {
-
-                MessageBox.Show("Please fill up all field");
+                MessageBox.Show("Please provide Id to update user information");
             }
 
 
@@ -190,5 +197,97 @@ namespace InventoryManagement0._1
 
             con.Close();
         }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            if (IDnumericUpDown.Value == 0)
+            {
+
+
+                SqlConnection con = new SqlConnection(cs);
+                string query = "delete from Registration where Id=@id";
+                SqlCommand cmd = new SqlCommand(query, con);
+
+                cmd.Parameters.AddWithValue("@id", IDnumericUpDown.Value);
+
+
+                con.Open();
+
+
+
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+
+                        MessageBox.Show("Deleted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Deletion  is fail", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please fill up all field");
+                }
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please provide id number to delete user !!");
+            }
+
+
+
+
+            
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            if (SearchtextBox.Text != "")
+            {
+                // working on search
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select*from Registration where Firstname like @Firstname + '%'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                sda.SelectCommand.Parameters.AddWithValue("@Firstname", SearchtextBox.Text.Trim());
+
+                DataTable data = new DataTable();
+                sda.Fill(data);
+
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+
+                }
+                else
+                {
+                    MessageBox.Show("No data is found");
+                    dataGridView1.DataSource = null;
+                }
+
+                SearchtextBox.Clear();
+
+
+
+            }
+
+            else
+            {
+
+                MessageBox.Show("Please enter some value to search !!");
+
+            }
+
+        }
+
     }
+}
 }

@@ -51,6 +51,8 @@ namespace InventoryManagement0._1
             this.Deletebutton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.Searchbutton = new System.Windows.Forms.Button();
+            this.SearchtextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -253,6 +255,7 @@ namespace InventoryManagement0._1
             this.Deletebutton.TabIndex = 15;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // label9
             // 
@@ -272,12 +275,35 @@ namespace InventoryManagement0._1
             this.IDnumericUpDown.Size = new System.Drawing.Size(40, 22);
             this.IDnumericUpDown.TabIndex = 17;
             // 
+            // Searchbutton
+            // 
+            this.Searchbutton.BackColor = System.Drawing.Color.Aqua;
+            this.Searchbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Searchbutton.Location = new System.Drawing.Point(1000, 85);
+            this.Searchbutton.Name = "Searchbutton";
+            this.Searchbutton.Size = new System.Drawing.Size(75, 27);
+            this.Searchbutton.TabIndex = 18;
+            this.Searchbutton.Text = "Search";
+            this.Searchbutton.UseVisualStyleBackColor = false;
+            this.Searchbutton.Click += new System.EventHandler(this.Searchbutton_Click);
+            // 
+            // SearchtextBox
+            // 
+            this.SearchtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchtextBox.Location = new System.Drawing.Point(826, 85);
+            this.SearchtextBox.Multiline = true;
+            this.SearchtextBox.Name = "SearchtextBox";
+            this.SearchtextBox.Size = new System.Drawing.Size(168, 27);
+            this.SearchtextBox.TabIndex = 19;
+            // 
             // AddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1115, 499);
+            this.Controls.Add(this.SearchtextBox);
+            this.Controls.Add(this.Searchbutton);
             this.Controls.Add(this.IDnumericUpDown);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.Deletebutton);
@@ -335,5 +361,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Button Deletebutton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.NumericUpDown IDnumericUpDown;
+        private System.Windows.Forms.Button Searchbutton;
+        private System.Windows.Forms.TextBox SearchtextBox;
     }
 }
