@@ -17,6 +17,17 @@ namespace InventoryManagement0._1
 
         string cs = ConfigurationManager.ConnectionStrings["dbcs1"].ConnectionString;
 
+        void DataGridviewFunction()
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select*from Registration";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            dataGridView1.DataSource = data;
+
+        }
+
 
         public AddNewUser()
         {
@@ -49,34 +60,43 @@ namespace InventoryManagement0._1
 
             con.Open();
 
-
-
-            try
-            {
-                int a = cmd.ExecuteNonQuery();
-                if (a > 0)
-                {
-
-                    MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                  
-                }
-
-                else
-                {
-                    MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
-                }
-            }
-            catch (Exception)
+            if (FirstNametxt.Text != "" && lastnametextBox.Text != ""&& Username1textBox.Text!=""&& Password1textBox.Text!="" && emailtextBox.Text!="" && ContacttextBox.Text!="" )
             {
 
-                MessageBox.Show("Please fill up all field");
+
+
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+
+                        MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please fill up all field");
+                }
+
+
+
+
+                con.Close();
+                ClearFunction();
             }
-
-
-
-
-            con.Close();
+            else
+            {
+                MessageBox.Show("Every information shoulld be fill !!","Failed",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+            }
 
         }
 
@@ -88,6 +108,36 @@ namespace InventoryManagement0._1
                 con.Close();
             }
             con.Open();
+        }
+
+        private void REset1btn_Click(object sender, EventArgs e)
+        {
+          if(FirstNametxt.Text=="" && lastnametextBox.Text=="" && Username1textBox.Text=="" && Password1textBox.Text=="" && emailtextBox.Text=="" && ContacttextBox.Text=="")
+            {
+                MessageBox.Show("There is nothing to reset","Failed");
+            }
+            else
+            {
+                ClearFunction();
+
+
+            }
+           
+        }
+        void ClearFunction()
+        {
+            FirstNametxt.Clear();
+            lastnametextBox.Clear();
+            Username1textBox.Clear();
+            Password1textBox.Clear();
+            emailtextBox.Clear();
+            ContacttextBox.Clear();
+            FirstNametxt.Focus();
+        }
+
+        private void Viewbutton_Click(object sender, EventArgs e)
+        {
+            DataGridviewFunction();
         }
     }
 }

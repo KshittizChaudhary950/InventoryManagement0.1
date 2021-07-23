@@ -40,27 +40,36 @@ namespace InventoryManagement0._1
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
-            int i= 0;
-            SqlConnection con = new SqlConnection(cs);
-            SqlDataAdapter sda = new SqlDataAdapter( "select * from Registration where username='"+Usertxt.Text+"' and password='"+PasswordtextBox.Text+"'",con);
-            
-            DataTable dt = new DataTable();
-          
-            sda.Fill(dt);
-
-            i = Convert.ToInt32(dt.Rows.Count.ToString());
-            if(i==0)
+            if (Usertxt.Text != "" && PasswordtextBox.Text != "")
             {
-                MessageBox.Show("Username and password does not match");
-                ResetFunction();
 
+
+                int i = 0;
+                SqlConnection con = new SqlConnection(cs);
+                SqlDataAdapter sda = new SqlDataAdapter("select * from Registration where username='" + Usertxt.Text + "' and password='" + PasswordtextBox.Text + "'", con);
+
+                DataTable dt = new DataTable();
+
+                sda.Fill(dt);
+
+                i = Convert.ToInt32(dt.Rows.Count.ToString());
+                if (i == 0)
+                {
+                    MessageBox.Show("Username and password does not match");
+                    ResetFunction();
+
+                }
+                else
+                {
+                    this.Hide();
+                    MDIParent1 mdi = new MDIParent1();
+                    mdi.Show();
+
+                }
             }
             else
             {
-                this.Hide();
-               MDIParent1 mdi = new MDIParent1();
-                mdi.Show();
-
+                MessageBox.Show("Please fill all information","Failed",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
             }
 
           

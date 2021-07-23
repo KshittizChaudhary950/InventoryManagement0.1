@@ -38,7 +38,6 @@ namespace InventoryManagement0._1
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.Loginbtn = new System.Windows.Forms.Button();
             this.Forgetlbl = new System.Windows.Forms.Label();
-            this.Sginuplbl = new System.Windows.Forms.Label();
             this.Resetlbl = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -125,18 +124,6 @@ namespace InventoryManagement0._1
             this.Forgetlbl.TabIndex = 5;
             this.Forgetlbl.Text = "Forget Password";
             // 
-            // Sginuplbl
-            // 
-            this.Sginuplbl.AutoSize = true;
-            this.Sginuplbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Sginuplbl.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.Sginuplbl.Location = new System.Drawing.Point(247, 9);
-            this.Sginuplbl.Name = "Sginuplbl";
-            this.Sginuplbl.Size = new System.Drawing.Size(69, 16);
-            this.Sginuplbl.TabIndex = 6;
-            this.Sginuplbl.Text = "SIGN UP";
-            this.Sginuplbl.Click += new System.EventHandler(this.Sginuplbl_Click);
-            // 
             // Resetlbl
             // 
             this.Resetlbl.AutoSize = true;
@@ -166,7 +153,6 @@ namespace InventoryManagement0._1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(331, 405);
-            this.Controls.Add(this.Sginuplbl);
             this.Controls.Add(this.Forgetlbl);
             this.Controls.Add(this.Resetlbl);
             this.Controls.Add(this.Loginbtn);
@@ -200,7 +186,6 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button Loginbtn;
         private System.Windows.Forms.Label Forgetlbl;
-        private System.Windows.Forms.Label Sginuplbl;
         private System.Windows.Forms.Label Resetlbl;
         private System.Windows.Forms.PictureBox pictureBox3;
     }
