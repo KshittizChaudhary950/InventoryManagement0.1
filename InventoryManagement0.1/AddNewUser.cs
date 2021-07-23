@@ -27,6 +27,19 @@ namespace InventoryManagement0._1
             dataGridView1.DataSource = data;
 
         }
+        void ClearFunction()
+        {
+            IDnumericUpDown.Value = 0;
+            FirstNametxt.Clear();
+            lastnametextBox.Clear();
+            Username1textBox.Clear();
+            Password1textBox.Clear();
+            emailtextBox.Clear();
+            ContacttextBox.Clear();
+
+            FirstNametxt.Focus();
+
+        }
 
 
         public AddNewUser()
@@ -55,12 +68,12 @@ namespace InventoryManagement0._1
             cmd.Parameters.AddWithValue("@lastname", lastnametextBox.Text);
             cmd.Parameters.AddWithValue("@username", Username1textBox.Text);
             cmd.Parameters.AddWithValue("@password", Password1textBox.Text);
-            cmd.Parameters.AddWithValue("@email",emailtextBox.Text);
+            cmd.Parameters.AddWithValue("@email", emailtextBox.Text);
             cmd.Parameters.AddWithValue("@contact", ContacttextBox.Text);
 
             con.Open();
 
-            if (FirstNametxt.Text != "" && lastnametextBox.Text != ""&& Username1textBox.Text!=""&& Password1textBox.Text!="" && emailtextBox.Text!="" && ContacttextBox.Text!="" )
+            if (FirstNametxt.Text != "" && lastnametextBox.Text != "" && Username1textBox.Text != "" && Password1textBox.Text != "" && emailtextBox.Text != "" && ContacttextBox.Text != "")
             {
 
 
@@ -91,12 +104,13 @@ namespace InventoryManagement0._1
 
 
                 con.Close();
-                ClearFunction();
+                
             }
             else
             {
-                MessageBox.Show("Every information shoulld be fill !!","Failed",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                MessageBox.Show("Every information shoulld be fill !!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             }
+            ClearFunction();
 
         }
 
@@ -116,9 +130,9 @@ namespace InventoryManagement0._1
 
         private void REset1btn_Click(object sender, EventArgs e)
         {
-          if(FirstNametxt.Text=="" && lastnametextBox.Text=="" && Username1textBox.Text=="" && Password1textBox.Text=="" && emailtextBox.Text=="" && ContacttextBox.Text=="")
+            if (FirstNametxt.Text == "" && lastnametextBox.Text == "" && Username1textBox.Text == "" && Password1textBox.Text == "" && emailtextBox.Text == "" && ContacttextBox.Text == "")
             {
-                MessageBox.Show("There is nothing to reset","Failed");
+                MessageBox.Show("There is nothing to reset", "Failed");
             }
             else
             {
@@ -126,18 +140,9 @@ namespace InventoryManagement0._1
 
 
             }
-           
+
         }
-        void ClearFunction()
-        {
-            FirstNametxt.Clear();
-            lastnametextBox.Clear();
-            Username1textBox.Clear();
-            Password1textBox.Clear();
-            emailtextBox.Clear();
-            ContacttextBox.Clear();
-            FirstNametxt.Focus();
-        }
+   
 
         private void Viewbutton_Click(object sender, EventArgs e)
         {
@@ -150,7 +155,7 @@ namespace InventoryManagement0._1
             SqlConnection con = new SqlConnection(cs);
             string query = "Update Registration set Firstname=@firstname, Lastname=@lastname,username=@username, password=@password, email=@email, contact=@contact where Id=@id";
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@id",IDnumericUpDown.Value);
+            cmd.Parameters.AddWithValue("@id", IDnumericUpDown.Value);
             cmd.Parameters.AddWithValue("@firstname", FirstNametxt.Text);
 
             cmd.Parameters.AddWithValue("@lastname", lastnametextBox.Text);
@@ -196,19 +201,21 @@ namespace InventoryManagement0._1
 
 
             con.Close();
+            ClearFunction();
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
         {
-            if (IDnumericUpDown.Value == 0)
+            if (IDnumericUpDown.Value != 0)
             {
 
 
                 SqlConnection con = new SqlConnection(cs);
-                string query = "delete from Registration where Id=@id";
+                string query = "delete from Registration where Id=@id and Firstname=@firstname";
                 SqlCommand cmd = new SqlCommand(query, con);
 
                 cmd.Parameters.AddWithValue("@id", IDnumericUpDown.Value);
+                cmd.Parameters.AddWithValue("@firstname", FirstNametxt.Text);
 
 
                 con.Open();
@@ -236,17 +243,19 @@ namespace InventoryManagement0._1
 
                     MessageBox.Show("Please fill up all field");
                 }
+               
                 con.Close();
             }
             else
             {
                 MessageBox.Show("Please provide id number to delete user !!");
             }
+            ClearFunction();
 
 
 
 
-            
+
         }
 
         private void Searchbutton_Click(object sender, EventArgs e)
@@ -274,6 +283,7 @@ namespace InventoryManagement0._1
                 }
 
                 SearchtextBox.Clear();
+                ClearFunction();
 
 
 
@@ -288,6 +298,62 @@ namespace InventoryManagement0._1
 
         }
 
+        private void SearchtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchtextBox.Text != "")
+            {
+                // auto generated in text bar search
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select*from Registration where Firstname like @firstname + '%'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                sda.SelectCommand.Parameters.AddWithValue("@firstname", SearchtextBox.Text.Trim());
+
+                DataTable data = new DataTable();
+                sda.Fill(data);
+
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+
+                }
+                else
+                {
+
+                    dataGridView1.DataSource = null;
+                }
+
+
+            }
+            else
+            {
+                SearchtextBox.Focus();
+            }
+
+
+
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                IDnumericUpDown.Value =Convert.ToInt32( dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                FirstNametxt.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                lastnametextBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                Username1textBox.Text =dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                Password1textBox.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                emailtextBox.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                ContacttextBox.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please select in id row");
+            }
+
+         
+        }
     }
 }
-}
+

@@ -88,5 +88,10 @@ namespace InventoryManagement0._1
             AddNewUser newuser = new AddNewUser();
             newuser.Show();
         }
+
+        private void Forgetlbl_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

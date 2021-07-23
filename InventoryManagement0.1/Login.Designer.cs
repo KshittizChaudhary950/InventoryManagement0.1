@@ -123,6 +123,7 @@ namespace InventoryManagement0._1
             this.Forgetlbl.Size = new System.Drawing.Size(125, 16);
             this.Forgetlbl.TabIndex = 5;
             this.Forgetlbl.Text = "Forget Password";
+            this.Forgetlbl.Click += new System.EventHandler(this.Forgetlbl_Click);
             // 
             // Resetlbl
             // 

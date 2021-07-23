@@ -220,6 +220,7 @@ namespace InventoryManagement0._1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(742, 326);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // Viewbutton
             // 
@@ -261,7 +262,7 @@ namespace InventoryManagement0._1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(347, 71);
+            this.label9.Location = new System.Drawing.Point(353, 85);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(28, 20);
             this.label9.TabIndex = 16;
@@ -270,7 +271,7 @@ namespace InventoryManagement0._1
             // IDnumericUpDown
             // 
             this.IDnumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.IDnumericUpDown.Location = new System.Drawing.Point(391, 71);
+            this.IDnumericUpDown.Location = new System.Drawing.Point(397, 85);
             this.IDnumericUpDown.Name = "IDnumericUpDown";
             this.IDnumericUpDown.Size = new System.Drawing.Size(40, 22);
             this.IDnumericUpDown.TabIndex = 17;
@@ -295,6 +296,7 @@ namespace InventoryManagement0._1
             this.SearchtextBox.Name = "SearchtextBox";
             this.SearchtextBox.Size = new System.Drawing.Size(168, 27);
             this.SearchtextBox.TabIndex = 19;
+            this.SearchtextBox.TextChanged += new System.EventHandler(this.SearchtextBox_TextChanged);
             // 
             // AddNewUser
             // 
