@@ -54,6 +54,7 @@ namespace InventoryManagement0._1
             this.PasswordtextBox.Name = "PasswordtextBox";
             this.PasswordtextBox.Size = new System.Drawing.Size(219, 19);
             this.PasswordtextBox.TabIndex = 2;
+            this.PasswordtextBox.UseSystemPasswordChar = true;
             // 
             // panel1
             // 
