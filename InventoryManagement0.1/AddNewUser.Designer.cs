@@ -218,7 +218,7 @@ namespace InventoryManagement0._1
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(333, 118);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(742, 326);
+            this.dataGridView1.Size = new System.Drawing.Size(756, 326);
             this.dataGridView1.TabIndex = 14;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
@@ -280,7 +280,7 @@ namespace InventoryManagement0._1
             // 
             this.Searchbutton.BackColor = System.Drawing.Color.Aqua;
             this.Searchbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Searchbutton.Location = new System.Drawing.Point(1000, 85);
+            this.Searchbutton.Location = new System.Drawing.Point(1014, 85);
             this.Searchbutton.Name = "Searchbutton";
             this.Searchbutton.Size = new System.Drawing.Size(75, 27);
             this.Searchbutton.TabIndex = 18;

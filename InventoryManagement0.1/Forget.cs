@@ -22,7 +22,12 @@ namespace InventoryManagement0._1
 
         private void Forget_Load(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection(cs);
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
         }
 
         private void Savebutton_Click(object sender, EventArgs e)
