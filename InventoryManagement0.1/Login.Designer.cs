@@ -112,6 +112,7 @@ namespace InventoryManagement0._1
             this.Loginbtn.TabIndex = 3;
             this.Loginbtn.Text = "LOG IN";
             this.Loginbtn.UseVisualStyleBackColor = false;
+            this.Loginbtn.Click += new System.EventHandler(this.Loginbtn_Click);
             // 
             // Forgetlbl
             // 
