@@ -32,17 +32,19 @@ namespace InventoryManagement0._1
             this.label1 = new System.Windows.Forms.Label();
             this.FirstNametxt = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lastnametextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Username1textBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Password1textBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.emailtextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ContacttextBox = new System.Windows.Forms.TextBox();
             this.ADDbtn = new System.Windows.Forms.Button();
             this.REset1btn = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -69,17 +71,17 @@ namespace InventoryManagement0._1
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(69, 118);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(89, 20);
+            this.label2.Size = new System.Drawing.Size(88, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Firstname";
+            this.label2.Text = "Lastname";
             // 
-            // textBox1
+            // lastnametextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(177, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(204, 26);
-            this.textBox1.TabIndex = 1;
+            this.lastnametextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lastnametextBox.Location = new System.Drawing.Point(177, 118);
+            this.lastnametextBox.Name = "lastnametextBox";
+            this.lastnametextBox.Size = new System.Drawing.Size(204, 26);
+            this.lastnametextBox.TabIndex = 2;
             // 
             // label3
             // 
@@ -87,17 +89,17 @@ namespace InventoryManagement0._1
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(69, 164);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 20);
+            this.label3.Size = new System.Drawing.Size(91, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Firstname";
+            this.label3.Text = "Username";
             // 
-            // textBox2
+            // Username1textBox
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(177, 164);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(204, 26);
-            this.textBox2.TabIndex = 1;
+            this.Username1textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username1textBox.Location = new System.Drawing.Point(177, 164);
+            this.Username1textBox.Name = "Username1textBox";
+            this.Username1textBox.Size = new System.Drawing.Size(204, 26);
+            this.Username1textBox.TabIndex = 3;
             // 
             // label4
             // 
@@ -105,17 +107,17 @@ namespace InventoryManagement0._1
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(69, 208);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 20);
+            this.label4.Size = new System.Drawing.Size(86, 20);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Firstname";
+            this.label4.Text = "Password";
             // 
-            // textBox3
+            // Password1textBox
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(177, 208);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(204, 26);
-            this.textBox3.TabIndex = 1;
+            this.Password1textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Password1textBox.Location = new System.Drawing.Point(177, 208);
+            this.Password1textBox.Name = "Password1textBox";
+            this.Password1textBox.Size = new System.Drawing.Size(204, 26);
+            this.Password1textBox.TabIndex = 4;
             // 
             // label5
             // 
@@ -123,17 +125,17 @@ namespace InventoryManagement0._1
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(69, 262);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(89, 20);
+            this.label5.Size = new System.Drawing.Size(53, 20);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Firstname";
+            this.label5.Text = "Email";
             // 
-            // textBox4
+            // emailtextBox
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(177, 262);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(204, 26);
-            this.textBox4.TabIndex = 1;
+            this.emailtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailtextBox.Location = new System.Drawing.Point(177, 262);
+            this.emailtextBox.Name = "emailtextBox";
+            this.emailtextBox.Size = new System.Drawing.Size(204, 26);
+            this.emailtextBox.TabIndex = 5;
             // 
             // label6
             // 
@@ -141,17 +143,17 @@ namespace InventoryManagement0._1
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(69, 313);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 20);
+            this.label6.Size = new System.Drawing.Size(72, 20);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Firstname";
+            this.label6.Text = "Contact";
             // 
-            // textBox5
+            // ContacttextBox
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(177, 313);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(204, 26);
-            this.textBox5.TabIndex = 1;
+            this.ContacttextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContacttextBox.Location = new System.Drawing.Point(177, 313);
+            this.ContacttextBox.Name = "ContacttextBox";
+            this.ContacttextBox.Size = new System.Drawing.Size(204, 26);
+            this.ContacttextBox.TabIndex = 6;
             // 
             // ADDbtn
             // 
@@ -164,6 +166,7 @@ namespace InventoryManagement0._1
             this.ADDbtn.TabIndex = 8;
             this.ADDbtn.Text = "ADD";
             this.ADDbtn.UseVisualStyleBackColor = false;
+            this.ADDbtn.Click += new System.EventHandler(this.ADDbtn_Click);
             // 
             // REset1btn
             // 
@@ -173,31 +176,58 @@ namespace InventoryManagement0._1
             this.REset1btn.Location = new System.Drawing.Point(285, 362);
             this.REset1btn.Name = "REset1btn";
             this.REset1btn.Size = new System.Drawing.Size(96, 35);
-            this.REset1btn.TabIndex = 8;
+            this.REset1btn.TabIndex = 9;
             this.REset1btn.Text = "RESET";
             this.REset1btn.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(174, 18);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(130, 18);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "SIGN UP FORM";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Red;
+            this.label8.Location = new System.Drawing.Point(257, 436);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(191, 20);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Go back to Login page";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // AddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(460, 465);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.REset1btn);
             this.Controls.Add(this.ADDbtn);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ContacttextBox);
+            this.Controls.Add(this.emailtextBox);
+            this.Controls.Add(this.Password1textBox);
+            this.Controls.Add(this.Username1textBox);
+            this.Controls.Add(this.lastnametextBox);
             this.Controls.Add(this.FirstNametxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "AddNewUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddNewUser";
+            this.Load += new System.EventHandler(this.AddNewUser_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,16 +238,18 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox FirstNametxt;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox lastnametextBox;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Username1textBox;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Password1textBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox emailtextBox;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ContacttextBox;
         private System.Windows.Forms.Button ADDbtn;
         private System.Windows.Forms.Button REset1btn;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
