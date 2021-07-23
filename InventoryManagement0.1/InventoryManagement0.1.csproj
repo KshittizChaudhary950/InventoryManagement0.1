@@ -82,6 +82,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="image\download %281%29.png" />
+    <Content Include="image\download %282%29.png" />
+    <Content Include="image\download %283%29.jpg" />
     <Content Include="image\download.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
