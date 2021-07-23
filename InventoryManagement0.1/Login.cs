@@ -91,7 +91,9 @@ namespace InventoryManagement0._1
 
         private void Forgetlbl_Click(object sender, EventArgs e)
         {
-            
+            this.Hide();
+            Forget f2 = new Forget();
+            f2.Show();
         }
     }
 }
