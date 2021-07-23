@@ -35,28 +35,42 @@ namespace InventoryManagement0._1
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Usertxt.Clear();
-            PasswordtextBox.Clear();
-            Usertxt.Focus();
+            ResetFunction();
         }
 
         private void Loginbtn_Click(object sender, EventArgs e)
         {
             int i= 0;
             SqlConnection con = new SqlConnection(cs);
-            string query = "select * from Registration where username=@username and password=@password";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@username", Usertxt.Text);
-            cmd.Parameters.AddWithValue("@password", PasswordtextBox.Text);
+            SqlDataAdapter sda = new SqlDataAdapter( "select * from Registration where username='"+Usertxt.Text+"' and password='"+PasswordtextBox.Text+"'",con);
+            
+            DataTable dt = new DataTable();
+          
+            sda.Fill(dt);
 
-            con.Open();
-           
+            i = Convert.ToInt32(dt.Rows.Count.ToString());
+            if(i==0)
+            {
+                MessageBox.Show("Username and password does not match");
+                ResetFunction();
 
+            }
+            else
+            {
+                this.Hide();
+               MDIParent1 mdi = new MDIParent1();
+                mdi.Show();
 
+            }
 
+          
+        }
+        void ResetFunction()
+        {
+            Usertxt.Clear();
+            PasswordtextBox.Clear();
+            Usertxt.Focus();
 
-            con.Close();
-         
         }
     }
 }
