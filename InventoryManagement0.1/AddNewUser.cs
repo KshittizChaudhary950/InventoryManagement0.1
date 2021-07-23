@@ -108,6 +108,10 @@ namespace InventoryManagement0._1
                 con.Close();
             }
             con.Open();
+
+            DataGridviewFunction();
+
+
         }
 
         private void REset1btn_Click(object sender, EventArgs e)
@@ -138,6 +142,53 @@ namespace InventoryManagement0._1
         private void Viewbutton_Click(object sender, EventArgs e)
         {
             DataGridviewFunction();
+        }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+            // working on update 
+            SqlConnection con = new SqlConnection(cs);
+            string query = "Update Employee set Firstname=@firstname, Lastname=@lastname,username=@username, password=@password, email=@email, contact=@contact where Id=@id";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id",IDnumericUpDown.Value);
+            cmd.Parameters.AddWithValue("@firstname", FirstNametxt.Text);
+
+            cmd.Parameters.AddWithValue("@lastname", lastnametextBox.Text);
+            cmd.Parameters.AddWithValue("@username", Username1textBox.Text);
+            cmd.Parameters.AddWithValue("@password", Password1textBox.Text);
+            cmd.Parameters.AddWithValue("@email", emailtextBox.Text);
+            cmd.Parameters.AddWithValue("contact", ContacttextBox.Text);
+
+            con.Open();
+
+
+
+            try
+            {
+                int a = cmd.ExecuteNonQuery();
+                if (a > 0)
+                {
+
+                    MessageBox.Show("Update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                 
+                }
+
+                else
+                {
+                    MessageBox.Show("Update is fail", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please fill up all field");
+            }
+
+
+
+
+            con.Close();
         }
     }
 }

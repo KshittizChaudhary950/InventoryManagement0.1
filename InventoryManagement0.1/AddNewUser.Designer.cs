@@ -49,7 +49,10 @@ namespace InventoryManagement0._1
             this.Viewbutton = new System.Windows.Forms.Button();
             this.Updatebutton = new System.Windows.Forms.Button();
             this.Deletebutton = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -211,7 +214,7 @@ namespace InventoryManagement0._1
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(347, 71);
+            this.dataGridView1.Location = new System.Drawing.Point(333, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(742, 326);
             this.dataGridView1.TabIndex = 14;
@@ -238,6 +241,7 @@ namespace InventoryManagement0._1
             this.Updatebutton.TabIndex = 15;
             this.Updatebutton.Text = "UPDATE";
             this.Updatebutton.UseVisualStyleBackColor = false;
+            this.Updatebutton.Click += new System.EventHandler(this.Updatebutton_Click);
             // 
             // Deletebutton
             // 
@@ -250,12 +254,32 @@ namespace InventoryManagement0._1
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(347, 71);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(28, 20);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "ID";
+            // 
+            // IDnumericUpDown
+            // 
+            this.IDnumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IDnumericUpDown.Location = new System.Drawing.Point(391, 71);
+            this.IDnumericUpDown.Name = "IDnumericUpDown";
+            this.IDnumericUpDown.Size = new System.Drawing.Size(40, 22);
+            this.IDnumericUpDown.TabIndex = 17;
+            // 
             // AddNewUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(1115, 499);
+            this.Controls.Add(this.IDnumericUpDown);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.Updatebutton);
             this.Controls.Add(this.Viewbutton);
@@ -281,6 +305,7 @@ namespace InventoryManagement0._1
             this.Text = "AddNewUser";
             this.Load += new System.EventHandler(this.AddNewUser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -308,5 +333,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Button Viewbutton;
         private System.Windows.Forms.Button Updatebutton;
         private System.Windows.Forms.Button Deletebutton;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.NumericUpDown IDnumericUpDown;
     }
 }
