@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.Security.Cryptography;
 
 namespace InventoryManagement0._1
 {
@@ -19,6 +20,7 @@ namespace InventoryManagement0._1
         {
             InitializeComponent();
         }
+
 
         private void Forget_Load(object sender, EventArgs e)
         {
@@ -42,11 +44,13 @@ namespace InventoryManagement0._1
                 SqlConnection con = new SqlConnection(cs);
                 string query = "Update Registration set password=@password where Id=@id and username=@username";
                 SqlCommand cmd = new SqlCommand(query, con);
-                cmd.Parameters.AddWithValue("@id", FidnumericUpDown.Value);
+                  
+                    cmd.Parameters.AddWithValue("@password", confirmtextBox.Text);
+                    cmd.Parameters.AddWithValue("@id", FidnumericUpDown.Value);
                 cmd.Parameters.AddWithValue("@username", Username2textBox.Text);
                 
              
-                cmd.Parameters.AddWithValue("@password", confirmtextBox.Text);
+                
          
 
                 con.Open();

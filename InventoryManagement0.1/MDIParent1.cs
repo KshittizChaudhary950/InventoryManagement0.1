@@ -106,6 +106,7 @@ namespace InventoryManagement0._1
 
         private void addNewUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            this.Hide();
             AddNewUser User1 = new AddNewUser();
             User1.Show();
         }
