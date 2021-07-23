@@ -72,5 +72,12 @@ namespace InventoryManagement0._1
             Usertxt.Focus();
 
         }
+
+        private void Sginuplbl_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddNewUser newuser = new AddNewUser();
+            newuser.Show();
+        }
     }
 }

@@ -135,6 +135,7 @@ namespace InventoryManagement0._1
             this.Sginuplbl.Size = new System.Drawing.Size(69, 16);
             this.Sginuplbl.TabIndex = 6;
             this.Sginuplbl.Text = "SIGN UP";
+            this.Sginuplbl.Click += new System.EventHandler(this.Sginuplbl_Click);
             // 
             // Resetlbl
             // 
