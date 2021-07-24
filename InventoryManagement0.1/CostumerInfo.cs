@@ -94,5 +94,65 @@ namespace InventoryManagement0._1
             MDIParent1 mdi = new MDIParent1();
             mdi.Show();
         }
+
+        private void Updatebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (iDnumericUpDown.Value!=0)
+                {
+
+                    SqlConnection con = new SqlConnection(cs);
+                    string query = "Update CostumerInfomation set CostumerName=@name , CostumerCompanyName=@company,Contact=@contact,Address=@address, city=@city where Id=@id";
+                    SqlCommand cmd = new SqlCommand(query, con);
+
+                    cmd.Parameters.AddWithValue("@id", iDnumericUpDown.Value);
+                    cmd.Parameters.AddWithValue("@name", Nametxt.Text);
+                    cmd.Parameters.AddWithValue("@company", CompanytextBox.Text);
+                    cmd.Parameters.AddWithValue("@contact", ContacttextBox.Text);
+                    cmd.Parameters.AddWithValue("@address", addresstextBox.Text);
+                    cmd.Parameters.AddWithValue("@city", Citytxt.Text);
+                    con.Open();
+
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please select id to update costumer");
+                }
+              
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Updation is failed");
+            }
+            DataGridviewFunction();
+            ClearFunction();
+        }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            try
+            {
+                iDnumericUpDown.Value = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                Nametxt.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                CompanytextBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+                ContacttextBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
+                addresstextBox.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
+                Citytxt.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
+                
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please select in id row");
+            }
+
+        }
     }
 }
