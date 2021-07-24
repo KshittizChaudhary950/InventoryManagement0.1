@@ -26,6 +26,14 @@ namespace InventoryManagement0._1
             dataGridView1.DataSource = data;
 
         }
+
+        void ClearFunction()
+        {
+            Idincrese.Value = 0;
+            Unittxt.Clear();
+            SearchTxt.Clear();
+            Unittxt.Focus();
+        }
         public Units()
         {
             InitializeComponent();
@@ -38,7 +46,41 @@ namespace InventoryManagement0._1
             {
                 con.Close();
             }
-            con.Open();
+            con.Open(); 
+
+
+            // working on search
+           if(SearchTxt.Text!="")
+            {
+
+            
+            string query = "select*from units where units like @units + '%'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            sda.SelectCommand.Parameters.AddWithValue("@units", SearchTxt.Text.Trim());
+
+            DataTable data = new DataTable();
+            sda.Fill(data);
+
+            if (data.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = data;
+                
+
+            }
+            else
+            {
+                MessageBox.Show("No data is found");
+                dataGridView1.DataSource = null;
+            }
+                ClearFunction()
+            }
+
+            DataGridviewFunction();
+   
+
+
+
+
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
@@ -64,11 +106,13 @@ namespace InventoryManagement0._1
 
                 }
 
+
             }
             else
             {
                 MessageBox.Show("You cant save empty units", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
+            ClearFunction();
 
         }
 
@@ -112,6 +156,90 @@ namespace InventoryManagement0._1
         private void Viewbtn_Click(object sender, EventArgs e)
         {
             DataGridviewFunction();
+        }
+
+        private void Deletebtn_Click(object sender, EventArgs e)
+        {
+            if (Idincrese.Value != 0)
+            {
+                SqlConnection con = new SqlConnection(cs);
+                string query = "Delete from units where Id='" + Idincrese.Value + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                con.Open();
+                int a = cmd.ExecuteNonQuery();
+
+                if (a > 0)
+                {
+                    MessageBox.Show("Delete successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Delection is failed !!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No units hasve zero Id in data !!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+            }
+            ClearFunction();
+        }
+
+        private void homelbl_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MDIParent1 mdi = new MDIParent1();
+            mdi.Show();
+        }
+
+        private void Searchbtn_Click(object sender, EventArgs e)
+        {
+            if (SearchTxt.Text!="")
+            {
+
+
+                // working on search
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select*from units where units like @units + '%'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                sda.SelectCommand.Parameters.AddWithValue("@units", SearchTxt.Text.Trim());
+
+                DataTable data = new DataTable();
+                sda.Fill(data);
+
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+
+                }
+                else
+                {
+                    MessageBox.Show("No data is found");
+                    dataGridView1.DataSource = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please provide unit to search operation","Failed",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+            ClearFunction();
+
+        }
+
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                Idincrese.Value = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                Unittxt.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please select in id row");
+            }
         }
     }
 }

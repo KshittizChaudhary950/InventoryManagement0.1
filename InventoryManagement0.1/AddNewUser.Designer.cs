@@ -208,9 +208,9 @@ namespace InventoryManagement0._1
             this.label8.ForeColor = System.Drawing.Color.Red;
             this.label8.Location = new System.Drawing.Point(898, 458);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(191, 20);
+            this.label8.Size = new System.Drawing.Size(194, 20);
             this.label8.TabIndex = 13;
-            this.label8.Text = "Go back to Login page";
+            this.label8.Text = "Go back to Home page";
             this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // dataGridView1

@@ -50,8 +50,8 @@ namespace InventoryManagement0._1
         private void label8_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login f1 = new Login();
-            f1.Show();
+            MDIParent1 mdi = new MDIParent1();
+            mdi.Show();
         }
 
         private void ADDbtn_Click(object sender, EventArgs e)
