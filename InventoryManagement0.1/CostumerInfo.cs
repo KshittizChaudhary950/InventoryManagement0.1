@@ -84,7 +84,7 @@ namespace InventoryManagement0._1
        
             }
             DataGridviewFunction();
-            ClearFunction();
+           // ClearFunction();
 
         }
 
