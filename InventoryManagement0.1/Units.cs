@@ -68,8 +68,34 @@ namespace InventoryManagement0._1
 
         private void Updatebtn_Click(object sender, EventArgs e)
         {
+            if(Idincrese.Value!=0 && Unittxt.Text!="")
+            {
+
             SqlConnection con = new SqlConnection(cs);
-            string query = "update units set units='"+Unittxt.Text+"' where ID=";
+            string query = "update units set units='"+Unittxt.Text+"' where ID='"+Idincrese.Value+"'";
+
+            SqlCommand cmd = new SqlCommand(query,con);
+            con.Open();
+            int a=cmd.ExecuteNonQuery();
+                if(a>0)
+                {
+                    MessageBox.Show("Update successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Updation is failed !!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please provide id to update !!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Viewbtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

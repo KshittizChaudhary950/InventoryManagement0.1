@@ -35,12 +35,12 @@ namespace InventoryManagement0._1
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.Deletebtn = new System.Windows.Forms.Button();
-            this.Viewbtm = new System.Windows.Forms.Button();
             this.SearchTxt = new System.Windows.Forms.TextBox();
             this.Searchbtn = new System.Windows.Forms.Button();
             this.Updatebtn = new System.Windows.Forms.Button();
             this.Idincrese = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.Viewbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Idincrese)).BeginInit();
             this.SuspendLayout();
@@ -105,18 +105,6 @@ namespace InventoryManagement0._1
             this.Deletebtn.UseVisualStyleBackColor = false;
             this.Deletebtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
-            // Viewbtm
-            // 
-            this.Viewbtm.BackColor = System.Drawing.Color.Aqua;
-            this.Viewbtm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Viewbtm.Location = new System.Drawing.Point(112, 168);
-            this.Viewbtm.Name = "Viewbtm";
-            this.Viewbtm.Size = new System.Drawing.Size(51, 27);
-            this.Viewbtm.TabIndex = 6;
-            this.Viewbtm.Text = "View";
-            this.Viewbtm.UseVisualStyleBackColor = false;
-            this.Viewbtm.Click += new System.EventHandler(this.Addbtn_Click);
-            // 
             // SearchTxt
             // 
             this.SearchTxt.Location = new System.Drawing.Point(461, 75);
@@ -144,7 +132,7 @@ namespace InventoryManagement0._1
             this.Updatebtn.Location = new System.Drawing.Point(189, 116);
             this.Updatebtn.Name = "Updatebtn";
             this.Updatebtn.Size = new System.Drawing.Size(75, 31);
-            this.Updatebtn.TabIndex = 11;
+            this.Updatebtn.TabIndex = 3;
             this.Updatebtn.Text = "Update";
             this.Updatebtn.UseVisualStyleBackColor = false;
             this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
@@ -167,19 +155,31 @@ namespace InventoryManagement0._1
             this.label3.TabIndex = 13;
             this.label3.Text = "ID";
             // 
+            // Viewbtn
+            // 
+            this.Viewbtn.BackColor = System.Drawing.Color.Cyan;
+            this.Viewbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Viewbtn.Location = new System.Drawing.Point(112, 168);
+            this.Viewbtn.Name = "Viewbtn";
+            this.Viewbtn.Size = new System.Drawing.Size(51, 27);
+            this.Viewbtn.TabIndex = 4;
+            this.Viewbtn.Text = "View";
+            this.Viewbtn.UseVisualStyleBackColor = false;
+            this.Viewbtn.Click += new System.EventHandler(this.Viewbtn_Click);
+            // 
             // Units
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(741, 350);
+            this.Controls.Add(this.Viewbtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Idincrese);
             this.Controls.Add(this.Updatebtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Searchbtn);
-            this.Controls.Add(this.Viewbtm);
             this.Controls.Add(this.Deletebtn);
             this.Controls.Add(this.Addbtn);
             this.Controls.Add(this.SearchTxt);
@@ -203,11 +203,11 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Deletebtn;
-        private System.Windows.Forms.Button Viewbtm;
         private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Button Searchbtn;
         private System.Windows.Forms.Button Updatebtn;
         private System.Windows.Forms.NumericUpDown Idincrese;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button Viewbtn;
     }
 }
