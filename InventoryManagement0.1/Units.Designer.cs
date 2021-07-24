@@ -30,16 +30,19 @@ namespace InventoryManagement0._1
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Unittxt = new System.Windows.Forms.TextBox();
             this.Addbtn = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
-            this.Updatebtn = new System.Windows.Forms.Button();
             this.Deletebtn = new System.Windows.Forms.Button();
             this.Viewbtm = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.SearchTxt = new System.Windows.Forms.TextBox();
             this.Searchbtn = new System.Windows.Forms.Button();
+            this.Updatebtn = new System.Windows.Forms.Button();
+            this.Idincrese = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Idincrese)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -52,12 +55,12 @@ namespace InventoryManagement0._1
             this.label1.TabIndex = 0;
             this.label1.Text = "Add Units ";
             // 
-            // textBox1
+            // Unittxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(152, 20);
-            this.textBox1.TabIndex = 1;
+            this.Unittxt.Location = new System.Drawing.Point(112, 75);
+            this.Unittxt.Name = "Unittxt";
+            this.Unittxt.Size = new System.Drawing.Size(152, 20);
+            this.Unittxt.TabIndex = 1;
             // 
             // Addbtn
             // 
@@ -90,18 +93,6 @@ namespace InventoryManagement0._1
             this.label2.TabIndex = 7;
             this.label2.Text = "UNITS";
             // 
-            // Updatebtn
-            // 
-            this.Updatebtn.BackColor = System.Drawing.Color.Aqua;
-            this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Updatebtn.Location = new System.Drawing.Point(190, 116);
-            this.Updatebtn.Name = "Updatebtn";
-            this.Updatebtn.Size = new System.Drawing.Size(74, 31);
-            this.Updatebtn.TabIndex = 3;
-            this.Updatebtn.Text = "Update";
-            this.Updatebtn.UseVisualStyleBackColor = false;
-            this.Updatebtn.Click += new System.EventHandler(this.Addbtn_Click);
-            // 
             // Deletebtn
             // 
             this.Deletebtn.BackColor = System.Drawing.Color.Aqua;
@@ -126,13 +117,13 @@ namespace InventoryManagement0._1
             this.Viewbtm.UseVisualStyleBackColor = false;
             this.Viewbtm.Click += new System.EventHandler(this.Addbtn_Click);
             // 
-            // textBox2
+            // SearchTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(461, 75);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(152, 20);
-            this.textBox2.TabIndex = 9;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.SearchTxt.Location = new System.Drawing.Point(461, 75);
+            this.SearchTxt.Name = "SearchTxt";
+            this.SearchTxt.Size = new System.Drawing.Size(152, 20);
+            this.SearchTxt.TabIndex = 9;
+            this.SearchTxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Searchbtn
             // 
@@ -146,26 +137,59 @@ namespace InventoryManagement0._1
             this.Searchbtn.UseVisualStyleBackColor = false;
             this.Searchbtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
+            // Updatebtn
+            // 
+            this.Updatebtn.BackColor = System.Drawing.Color.Cyan;
+            this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Updatebtn.Location = new System.Drawing.Point(189, 116);
+            this.Updatebtn.Name = "Updatebtn";
+            this.Updatebtn.Size = new System.Drawing.Size(75, 31);
+            this.Updatebtn.TabIndex = 11;
+            this.Updatebtn.Text = "Update";
+            this.Updatebtn.UseVisualStyleBackColor = false;
+            this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
+            // 
+            // Idincrese
+            // 
+            this.Idincrese.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Idincrese.Location = new System.Drawing.Point(394, 73);
+            this.Idincrese.Name = "Idincrese";
+            this.Idincrese.Size = new System.Drawing.Size(50, 22);
+            this.Idincrese.TabIndex = 12;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(358, 76);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(23, 16);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "ID";
+            // 
             // Units
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(741, 350);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Idincrese);
+            this.Controls.Add(this.Updatebtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.Searchbtn);
             this.Controls.Add(this.Viewbtm);
             this.Controls.Add(this.Deletebtn);
-            this.Controls.Add(this.Updatebtn);
             this.Controls.Add(this.Addbtn);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.SearchTxt);
+            this.Controls.Add(this.Unittxt);
             this.Controls.Add(this.label1);
             this.Name = "Units";
             this.Text = "Units";
             this.Load += new System.EventHandler(this.Units_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Idincrese)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,14 +198,16 @@ namespace InventoryManagement0._1
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Unittxt;
         private System.Windows.Forms.Button Addbtn;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button Updatebtn;
         private System.Windows.Forms.Button Deletebtn;
         private System.Windows.Forms.Button Viewbtm;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox SearchTxt;
         private System.Windows.Forms.Button Searchbtn;
+        private System.Windows.Forms.Button Updatebtn;
+        private System.Windows.Forms.NumericUpDown Idincrese;
+        private System.Windows.Forms.Label label3;
     }
 }
