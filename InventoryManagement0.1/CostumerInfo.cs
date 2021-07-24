@@ -154,5 +154,36 @@ namespace InventoryManagement0._1
             }
 
         }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (iDnumericUpDown.Value != 0)
+                {
+
+                    SqlConnection con = new SqlConnection(cs);
+                    string query = "Delete from CostumerInfomation where Id=@id";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@id", iDnumericUpDown.Value);
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Please select id to delete costumer infromation");
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Delection is failed !!");
+            }
+            DataGridviewFunction();
+            ClearFunction();
+
+
+        }
     }
 }

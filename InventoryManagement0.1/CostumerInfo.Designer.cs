@@ -259,6 +259,7 @@ namespace InventoryManagement0._1
             this.Deletebutton.TabIndex = 9;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // label7
             // 
