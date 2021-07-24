@@ -125,5 +125,12 @@ namespace InventoryManagement0._1
             p1.Show();
 
         }
+
+        private void costumerInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            CostumerInfo c1 = new CostumerInfo();
+            c1.Show();
+        }
     }
 }

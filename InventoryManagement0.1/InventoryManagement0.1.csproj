@@ -94,6 +94,9 @@
     <EmbeddedResource Include="AddNewUser.resx">
       <DependentUpon>AddNewUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CostumerInfo.resx">
+      <DependentUpon>CostumerInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forget.resx">
       <DependentUpon>Forget.cs</DependentUpon>
     </EmbeddedResource>
