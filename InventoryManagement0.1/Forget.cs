@@ -41,7 +41,7 @@ namespace InventoryManagement0._1
 
                 
                 // working on update 
-                SqlConnection con = new SqlConnection(cs);
+               // SqlConnection con = new SqlConnection(cs);
                 string query = "Update Registration set password=@password where Id=@id and username=@username";
                 SqlCommand cmd = new SqlCommand(query, con);
                   
