@@ -117,5 +117,13 @@ namespace InventoryManagement0._1
             Units u1 = new Units();
             u1.Show();
         }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Productname p1 = new Productname();
+            p1.Show();
+
+        }
     }
 }

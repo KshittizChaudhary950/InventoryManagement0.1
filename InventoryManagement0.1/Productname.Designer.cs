@@ -42,6 +42,8 @@ namespace InventoryManagement0._1
             this.label3 = new System.Windows.Forms.Label();
             this.idnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idnumericUpDown)).BeginInit();
             this.SuspendLayout();
@@ -68,12 +70,13 @@ namespace InventoryManagement0._1
             // 
             this.Addbtn.BackColor = System.Drawing.Color.Aqua;
             this.Addbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbtn.Location = new System.Drawing.Point(148, 109);
+            this.Addbtn.Location = new System.Drawing.Point(8, 168);
             this.Addbtn.Name = "Addbtn";
             this.Addbtn.Size = new System.Drawing.Size(134, 32);
-            this.Addbtn.TabIndex = 2;
+            this.Addbtn.TabIndex = 3;
             this.Addbtn.Text = "Add";
             this.Addbtn.UseVisualStyleBackColor = false;
+            this.Addbtn.Click += new System.EventHandler(this.Addbtn_Click);
             // 
             // label2
             // 
@@ -89,10 +92,10 @@ namespace InventoryManagement0._1
             // 
             this.Updatebtn.BackColor = System.Drawing.Color.Aqua;
             this.Updatebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Updatebtn.Location = new System.Drawing.Point(148, 161);
+            this.Updatebtn.Location = new System.Drawing.Point(148, 168);
             this.Updatebtn.Name = "Updatebtn";
             this.Updatebtn.Size = new System.Drawing.Size(134, 32);
-            this.Updatebtn.TabIndex = 2;
+            this.Updatebtn.TabIndex = 4;
             this.Updatebtn.Text = "Update";
             this.Updatebtn.UseVisualStyleBackColor = false;
             // 
@@ -100,10 +103,10 @@ namespace InventoryManagement0._1
             // 
             this.Viewbutton.BackColor = System.Drawing.Color.Aqua;
             this.Viewbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Viewbutton.Location = new System.Drawing.Point(148, 217);
+            this.Viewbutton.Location = new System.Drawing.Point(8, 220);
             this.Viewbutton.Name = "Viewbutton";
             this.Viewbutton.Size = new System.Drawing.Size(134, 32);
-            this.Viewbutton.TabIndex = 3;
+            this.Viewbutton.TabIndex = 4;
             this.Viewbutton.Text = "View";
             this.Viewbutton.UseVisualStyleBackColor = false;
             // 
@@ -111,7 +114,7 @@ namespace InventoryManagement0._1
             // 
             this.Deletebutton.BackColor = System.Drawing.Color.Aqua;
             this.Deletebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Deletebutton.Location = new System.Drawing.Point(148, 268);
+            this.Deletebutton.Location = new System.Drawing.Point(148, 220);
             this.Deletebutton.Name = "Deletebutton";
             this.Deletebutton.Size = new System.Drawing.Size(134, 32);
             this.Deletebutton.TabIndex = 5;
@@ -174,12 +177,35 @@ namespace InventoryManagement0._1
             this.label4.Size = new System.Drawing.Size(56, 20);
             this.label4.TabIndex = 9;
             this.label4.Text = "Home";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(39, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 16);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Select Units";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(148, 113);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(134, 24);
+            this.comboBox1.TabIndex = 2;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // Productname
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 367);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.idnumericUpDown);
             this.Controls.Add(this.label3);
@@ -195,6 +221,7 @@ namespace InventoryManagement0._1
             this.Controls.Add(this.label1);
             this.Name = "Productname";
             this.Text = "Productname";
+            this.Load += new System.EventHandler(this.Productname_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idnumericUpDown)).EndInit();
             this.ResumeLayout(false);
@@ -217,5 +244,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown idnumericUpDown;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
