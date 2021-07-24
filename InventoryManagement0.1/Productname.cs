@@ -31,12 +31,14 @@ namespace InventoryManagement0._1
         {
             comboBox1.Items.Clear();
             ProducttextBox.Clear();
+
+            SearchtextBox.Clear();
             ProducttextBox.Focus();
         }
         void CombomboxFill()
         {
             SqlConnection con = new SqlConnection(cs);
-           
+
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -46,10 +48,11 @@ namespace InventoryManagement0._1
             SqlDataAdapter da = new SqlDataAdapter(cmd);
 
             da.Fill(dt);
-            foreach(DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt.Rows)
             {
                 comboBox1.Items.Add(dr["units"].ToString());
-            } con.Close();
+            }
+            con.Close();
 
         }
         public Productname()
@@ -70,13 +73,13 @@ namespace InventoryManagement0._1
             string query = "insert into Productname(Productname,units) values(@productname,@units)";
 
             SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@productname",ProducttextBox.Text);
-            cmd.Parameters.AddWithValue("@units",comboBox1.SelectedItem);
+            cmd.Parameters.AddWithValue("@productname", ProducttextBox.Text);
+            cmd.Parameters.AddWithValue("@units", comboBox1.SelectedItem);
 
             con.Open();
 
-           
-            if(comboBox1.Text!="" && ProducttextBox.Text!="")
+
+            if (comboBox1.Text != "" && ProducttextBox.Text != "")
             {
                 cmd.ExecuteNonQuery();
             }
@@ -85,9 +88,10 @@ namespace InventoryManagement0._1
                 MessageBox.Show("Please provide product", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
             }
             DataGridviewFunction();
+            ClearFunction();
 
         }
-        
+
 
         private void Productname_Load(object sender, EventArgs e)
         {
@@ -100,6 +104,7 @@ namespace InventoryManagement0._1
 
             CombomboxFill();
             DataGridviewFunction();
+            ClearFunction();
 
         }
 
@@ -120,14 +125,14 @@ namespace InventoryManagement0._1
             SqlConnection con = new SqlConnection(cs);
             string query = "Update Productname set Productname=@productname , units=@units where Id=@id";
 
-            SqlCommand cmd = new SqlCommand(query,con);
+            SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@id", idnumericUpDown.Value);
-            cmd.Parameters.AddWithValue("@productname",ProducttextBox.Text);
-            cmd.Parameters.AddWithValue("@units",comboBox1.SelectedItem);
-          
-            
+            cmd.Parameters.AddWithValue("@productname", ProducttextBox.Text);
+            cmd.Parameters.AddWithValue("@units", comboBox1.SelectedItem);
+
+
             con.Open();
-            if(idnumericUpDown.Value!=0)
+            if (idnumericUpDown.Value != 0)
             {
                 cmd.ExecuteNonQuery();
             }
@@ -138,17 +143,20 @@ namespace InventoryManagement0._1
             DataGridviewFunction();
 
             con.Close();
-           
+
         }
 
         private void Deletebutton_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(cs);
-            string query = "delete from Productname where Id='"+idnumericUpDown.Value+"'";
-            SqlCommand cmd = new SqlCommand(query,con);
+            string query = "delete from Productname where Id=@id";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@id", idnumericUpDown.Value);
+            con.Open();
             try
             {
-                if (idnumericUpDown.Value!=0)
+                if (idnumericUpDown.Value != 0)
                 {
                     cmd.ExecuteNonQuery();
                 }
@@ -162,9 +170,66 @@ namespace InventoryManagement0._1
             {
                 MessageBox.Show("Delection is failed");
             }
-          
-            
+            con.Close();
+
+            DataGridviewFunction();
+            ClearFunction();
+
+
+
+
 
         }
+
+        private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            try
+            {
+                idnumericUpDown.Value = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
+                ProducttextBox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+
+                comboBox1.SelectedItem = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Please select in id row");
+            }
+
+
+        }
+
+        private void Searchbutton_Click(object sender, EventArgs e)
+        {
+            // working on search
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select*from Productname where Productname like @Productname + '%'";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            sda.SelectCommand.Parameters.AddWithValue("@Productname", SearchtextBox.Text.Trim());
+
+            DataTable data = new DataTable();
+            sda.Fill(data);
+
+            if (data.Rows.Count > 0)
+            {
+                dataGridView1.DataSource = data;
+
+            }
+            else
+            {
+                MessageBox.Show("No data is found");
+                dataGridView1.DataSource = null;
+            }
+
+            SearchtextBox.Clear();
+            SearchtextBox.Focus();
+     
+
+        }
+
     }
+
 }
+    

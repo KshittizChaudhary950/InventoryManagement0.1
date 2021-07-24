@@ -134,6 +134,7 @@ namespace InventoryManagement0._1
             this.Searchbutton.TabIndex = 6;
             this.Searchbutton.Text = "Search";
             this.Searchbutton.UseVisualStyleBackColor = false;
+            this.Searchbutton.Click += new System.EventHandler(this.Searchbutton_Click);
             // 
             // SearchtextBox
             // 
@@ -150,6 +151,7 @@ namespace InventoryManagement0._1
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(389, 205);
             this.dataGridView1.TabIndex = 6;
+            this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
             // 
             // label3
             // 
