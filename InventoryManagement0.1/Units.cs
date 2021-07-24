@@ -49,38 +49,6 @@ namespace InventoryManagement0._1
             con.Open(); 
 
 
-            // working on search
-           if(SearchTxt.Text!="")
-            {
-
-            
-            string query = "select*from units where units like @units + '%'";
-            SqlDataAdapter sda = new SqlDataAdapter(query, con);
-            sda.SelectCommand.Parameters.AddWithValue("@units", SearchTxt.Text.Trim());
-
-            DataTable data = new DataTable();
-            sda.Fill(data);
-
-            if (data.Rows.Count > 0)
-            {
-                dataGridView1.DataSource = data;
-                
-
-            }
-            else
-            {
-                MessageBox.Show("No data is found");
-                dataGridView1.DataSource = null;
-            }
-                ClearFunction()
-            }
-
-            DataGridviewFunction();
-   
-
-
-
-
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
