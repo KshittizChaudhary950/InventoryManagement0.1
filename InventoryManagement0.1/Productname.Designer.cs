@@ -98,6 +98,7 @@ namespace InventoryManagement0._1
             this.Updatebtn.TabIndex = 4;
             this.Updatebtn.Text = "Update";
             this.Updatebtn.UseVisualStyleBackColor = false;
+            this.Updatebtn.Click += new System.EventHandler(this.Updatebtn_Click);
             // 
             // Viewbutton
             // 
@@ -109,6 +110,7 @@ namespace InventoryManagement0._1
             this.Viewbutton.TabIndex = 4;
             this.Viewbutton.Text = "View";
             this.Viewbutton.UseVisualStyleBackColor = false;
+            this.Viewbutton.Click += new System.EventHandler(this.Viewbutton_Click);
             // 
             // Deletebutton
             // 
@@ -120,6 +122,7 @@ namespace InventoryManagement0._1
             this.Deletebutton.TabIndex = 5;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // Searchbutton
             // 

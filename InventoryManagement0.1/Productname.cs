@@ -107,5 +107,64 @@ namespace InventoryManagement0._1
         {
             CombomboxFill();
         }
+
+        private void Viewbutton_Click(object sender, EventArgs e)
+        {
+            DataGridviewFunction();
+        }
+
+        private void Updatebtn_Click(object sender, EventArgs e)
+        {
+
+            //working on update 
+            SqlConnection con = new SqlConnection(cs);
+            string query = "Update Productname set Productname=@productname , units=@units where Id=@id";
+
+            SqlCommand cmd = new SqlCommand(query,con);
+            cmd.Parameters.AddWithValue("@id", idnumericUpDown.Value);
+            cmd.Parameters.AddWithValue("@productname",ProducttextBox.Text);
+            cmd.Parameters.AddWithValue("@units",comboBox1.SelectedItem);
+          
+            
+            con.Open();
+            if(idnumericUpDown.Value!=0)
+            {
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                MessageBox.Show("Please provide Id and productname !!!", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            DataGridviewFunction();
+
+            con.Close();
+           
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "delete from Productname where Id='"+idnumericUpDown.Value+"'";
+            SqlCommand cmd = new SqlCommand(query,con);
+            try
+            {
+                if (idnumericUpDown.Value!=0)
+                {
+                    cmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    MessageBox.Show("Please select id number to delete respective data");
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Delection is failed");
+            }
+          
+            
+
+        }
     }
 }
