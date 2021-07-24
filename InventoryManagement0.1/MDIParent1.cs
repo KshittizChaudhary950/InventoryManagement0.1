@@ -110,5 +110,12 @@ namespace InventoryManagement0._1
             AddNewUser User1 = new AddNewUser();
             User1.Show();
         }
+
+        private void addUnitsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Units u1 = new Units();
+            u1.Show();
+        }
     }
 }

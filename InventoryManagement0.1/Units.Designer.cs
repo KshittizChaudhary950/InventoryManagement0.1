@@ -57,9 +57,10 @@ namespace InventoryManagement0._1
             // 
             // Unittxt
             // 
+            this.Unittxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Unittxt.Location = new System.Drawing.Point(112, 75);
             this.Unittxt.Name = "Unittxt";
-            this.Unittxt.Size = new System.Drawing.Size(152, 20);
+            this.Unittxt.Size = new System.Drawing.Size(152, 22);
             this.Unittxt.TabIndex = 1;
             // 
             // Addbtn
@@ -107,9 +108,10 @@ namespace InventoryManagement0._1
             // 
             // SearchTxt
             // 
-            this.SearchTxt.Location = new System.Drawing.Point(461, 75);
+            this.SearchTxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchTxt.Location = new System.Drawing.Point(475, 72);
             this.SearchTxt.Name = "SearchTxt";
-            this.SearchTxt.Size = new System.Drawing.Size(152, 20);
+            this.SearchTxt.Size = new System.Drawing.Size(152, 22);
             this.SearchTxt.TabIndex = 9;
             this.SearchTxt.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 

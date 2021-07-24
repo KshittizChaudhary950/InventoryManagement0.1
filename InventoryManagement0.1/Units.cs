@@ -15,6 +15,17 @@ namespace InventoryManagement0._1
     public partial class Units : Form
     {
         string cs = ConfigurationManager.ConnectionStrings["dbcs1"].ConnectionString;
+
+        void DataGridviewFunction()
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select*from units";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            dataGridView1.DataSource = data;
+
+        }
         public Units()
         {
             InitializeComponent();
@@ -22,7 +33,12 @@ namespace InventoryManagement0._1
 
         private void Units_Load(object sender, EventArgs e)
         {
-
+            SqlConnection con = new SqlConnection(cs);
+            if (con.State == ConnectionState.Open)
+            {
+                con.Close();
+            }
+            con.Open();
         }
 
         private void Addbtn_Click(object sender, EventArgs e)
@@ -95,7 +111,7 @@ namespace InventoryManagement0._1
 
         private void Viewbtn_Click(object sender, EventArgs e)
         {
-
+            DataGridviewFunction();
         }
     }
 }
