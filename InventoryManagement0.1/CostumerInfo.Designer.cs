@@ -112,6 +112,7 @@ namespace InventoryManagement0._1
             this.searchbtn.TabIndex = 10;
             this.searchbtn.Text = "Search";
             this.searchbtn.UseVisualStyleBackColor = false;
+            this.searchbtn.Click += new System.EventHandler(this.searchbtn_Click);
             // 
             // label2
             // 
@@ -220,7 +221,7 @@ namespace InventoryManagement0._1
             this.SearchtextBox.Multiline = true;
             this.SearchtextBox.Name = "SearchtextBox";
             this.SearchtextBox.Size = new System.Drawing.Size(152, 30);
-            this.SearchtextBox.TabIndex = 11;
+            this.SearchtextBox.TabIndex = 9;
             // 
             // Addbutton
             // 

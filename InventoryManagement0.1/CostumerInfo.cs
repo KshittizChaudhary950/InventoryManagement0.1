@@ -33,8 +33,8 @@ namespace InventoryManagement0._1
             CompanytextBox.Clear();
             ContacttextBox.Clear();
             addresstextBox.Clear();
-           Citytxt.Clear();
-       
+            Citytxt.Clear();
+
             Nametxt.Focus();
 
         }
@@ -81,7 +81,7 @@ namespace InventoryManagement0._1
             catch (Exception)
             {
                 MessageBox.Show("Unable to add data ");
-       
+
             }
             DataGridviewFunction();
             ClearFunction();
@@ -100,7 +100,7 @@ namespace InventoryManagement0._1
             try
             {
 
-                if (iDnumericUpDown.Value!=0)
+                if (iDnumericUpDown.Value != 0)
                 {
 
                     SqlConnection con = new SqlConnection(cs);
@@ -122,8 +122,8 @@ namespace InventoryManagement0._1
                 {
                     MessageBox.Show("Please select id to update costumer");
                 }
-              
-                
+
+
             }
             catch (Exception)
             {
@@ -145,7 +145,7 @@ namespace InventoryManagement0._1
                 ContacttextBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
                 addresstextBox.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
                 Citytxt.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-                
+
             }
             catch (Exception)
             {
@@ -185,5 +185,44 @@ namespace InventoryManagement0._1
 
 
         }
+
+        private void searchbtn_Click(object sender, EventArgs e)
+        {
+            if (SearchtextBox.Text!="")
+            {
+
+                // working on search
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select*from CostumerInfomation where CostumerName like @name + '%'";
+                SqlDataAdapter sda = new SqlDataAdapter(query, con);
+                sda.SelectCommand.Parameters.AddWithValue("@name", SearchtextBox.Text.Trim());
+
+                DataTable data = new DataTable();
+                sda.Fill(data);
+
+                if (data.Rows.Count > 0)
+                {
+                    dataGridView1.DataSource = data;
+
+                }
+                else
+                {
+                    MessageBox.Show("No data is found");
+                    dataGridView1.DataSource = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please type costumer name in search box");
+            }
+
+            SearchtextBox.Clear();
+            ClearFunction();
+
+
+
+        }
+
     }
 }
+
