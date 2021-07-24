@@ -16,10 +16,27 @@ namespace InventoryManagement0._1
     {
         string cs = ConfigurationManager.ConnectionStrings["dbcs1"].ConnectionString;
 
+        void DataGridviewFunction()
+        {
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select*from Productname";
+            SqlDataAdapter sda = new SqlDataAdapter(query, con);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            dataGridView1.DataSource = data;
+
+        }
+
+        void ClearFunction()
+        {
+            comboBox1.Items.Clear();
+            ProducttextBox.Clear();
+            ProducttextBox.Focus();
+        }
         void CombomboxFill()
         {
             SqlConnection con = new SqlConnection(cs);
-            comboBox1.Items.Clear();
+           
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
@@ -50,9 +67,27 @@ namespace InventoryManagement0._1
         private void Addbtn_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(cs);
-           // string query ="insert into table":
+            string query = "insert into Productname(Productname,units) values(@productname,@units)";
+
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@productname",ProducttextBox.Text);
+            cmd.Parameters.AddWithValue("@units",comboBox1.SelectedItem);
+
+            con.Open();
+
+           
+            if(comboBox1.Text!="" && ProducttextBox.Text!="")
+            {
+                cmd.ExecuteNonQuery();
+            }
+            else
+            {
+                MessageBox.Show("Please provide product", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            DataGridviewFunction();
 
         }
+        
 
         private void Productname_Load(object sender, EventArgs e)
         {
@@ -64,6 +99,7 @@ namespace InventoryManagement0._1
             con.Open();
 
             CombomboxFill();
+            DataGridviewFunction();
 
         }
 
