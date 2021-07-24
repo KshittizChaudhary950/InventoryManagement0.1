@@ -53,6 +53,12 @@
     <Compile Include="AddNewUser.Designer.cs">
       <DependentUpon>AddNewUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="CostumerInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CostumerInfo.Designer.cs">
+      <DependentUpon>CostumerInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forget.cs">
       <SubType>Form</SubType>
     </Compile>
