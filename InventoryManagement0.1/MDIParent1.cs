@@ -132,5 +132,12 @@ namespace InventoryManagement0._1
             CostumerInfo c1 = new CostumerInfo();
             c1.Show();
         }
+
+        private void purchaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Purchase p1 = new Purchase();
+            p1.Show();
+        }
     }
 }

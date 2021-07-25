@@ -37,11 +37,12 @@ namespace InventoryManagement0._1
             this.addUnitsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.costumerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.costumerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.costumerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.costumerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -92,7 +93,8 @@ namespace InventoryManagement0._1
             // productToolStripMenuItem
             // 
             this.productToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addProductToolStripMenuItem});
+            this.addProductToolStripMenuItem,
+            this.purchaseToolStripMenuItem});
             this.productToolStripMenuItem.Name = "productToolStripMenuItem";
             this.productToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.productToolStripMenuItem.Text = "Product";
@@ -100,9 +102,24 @@ namespace InventoryManagement0._1
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addProductToolStripMenuItem.Text = "Add Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
+            // 
+            // costumerToolStripMenuItem
+            // 
+            this.costumerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.costumerInformationToolStripMenuItem});
+            this.costumerToolStripMenuItem.Name = "costumerToolStripMenuItem";
+            this.costumerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.costumerToolStripMenuItem.Text = "Costumer";
+            // 
+            // costumerInformationToolStripMenuItem
+            // 
+            this.costumerInformationToolStripMenuItem.Name = "costumerInformationToolStripMenuItem";
+            this.costumerInformationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.costumerInformationToolStripMenuItem.Text = "Costumer Information";
+            this.costumerInformationToolStripMenuItem.Click += new System.EventHandler(this.costumerInformationToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -120,20 +137,12 @@ namespace InventoryManagement0._1
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // costumerToolStripMenuItem
+            // purchaseToolStripMenuItem
             // 
-            this.costumerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.costumerInformationToolStripMenuItem});
-            this.costumerToolStripMenuItem.Name = "costumerToolStripMenuItem";
-            this.costumerToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.costumerToolStripMenuItem.Text = "Costumer";
-            // 
-            // costumerInformationToolStripMenuItem
-            // 
-            this.costumerInformationToolStripMenuItem.Name = "costumerInformationToolStripMenuItem";
-            this.costumerInformationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.costumerInformationToolStripMenuItem.Text = "Costumer Information";
-            this.costumerInformationToolStripMenuItem.Click += new System.EventHandler(this.costumerInformationToolStripMenuItem_Click);
+            this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
+            this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.purchaseToolStripMenuItem.Text = "Purchase Product";
+            this.purchaseToolStripMenuItem.Click += new System.EventHandler(this.purchaseToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
@@ -170,6 +179,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem costumerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem costumerInformationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem purchaseToolStripMenuItem;
     }
 }
 
