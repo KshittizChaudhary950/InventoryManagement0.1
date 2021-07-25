@@ -157,9 +157,10 @@ namespace InventoryManagement0._1
 
             con.Open();
 
-          
 
 
+            if (ProductcomboBox.Text != "" && ProductqtytextBox.Text != "" && ProductPricetextBox.Text != "" && PurchasetypecomboBox.Text != "")
+            {
 
                 try
                 {
@@ -182,9 +183,14 @@ namespace InventoryManagement0._1
 
                     MessageBox.Show("Please fill up all field");
                 }
+            }
+            else
+            {
+                MessageBox.Show("Please insert all information");
+            }
 
 
-
+            ClearFunction();
 
                 con.Close();
 
