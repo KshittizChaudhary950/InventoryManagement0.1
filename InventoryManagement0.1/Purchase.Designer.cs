@@ -288,6 +288,7 @@ namespace InventoryManagement0._1
             this.Name = "Purchase";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Purchase";
+            this.Load += new System.EventHandler(this.Purchase_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
