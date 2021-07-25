@@ -225,6 +225,7 @@ namespace InventoryManagement0._1
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "Productname";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Productname";
             this.Load += new System.EventHandler(this.Productname_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

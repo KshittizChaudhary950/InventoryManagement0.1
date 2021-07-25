@@ -63,5 +63,47 @@ namespace InventoryManagement0._1
             con.Close();
 
         }
+
+        private void ProductcomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select*from ProductName where ProductName='"+ProductcomboBox.Text+"'";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Unit.Text = dr["units"].ToString();
+            }
+            con.Close();
+        }
+        public void FillCustomerName()
+        {
+
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select*from CostumerInfomation";
+            cmd.ExecuteNonQuery();
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+
+            da.Fill(dt);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                CustomernamecomboBox.Items.Add(dr["CostumerName"].ToString());
+            }
+            con.Close();
+        }
     }
 }

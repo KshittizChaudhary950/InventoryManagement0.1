@@ -34,7 +34,7 @@ namespace InventoryManagement0._1
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.ProductqtytextBox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.Unit = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -71,6 +71,7 @@ namespace InventoryManagement0._1
             this.ProductcomboBox.Name = "ProductcomboBox";
             this.ProductcomboBox.Size = new System.Drawing.Size(203, 24);
             this.ProductcomboBox.TabIndex = 1;
+            this.ProductcomboBox.SelectedIndexChanged += new System.EventHandler(this.ProductcomboBox_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -99,15 +100,15 @@ namespace InventoryManagement0._1
             this.ProductqtytextBox.Size = new System.Drawing.Size(121, 20);
             this.ProductqtytextBox.TabIndex = 2;
             // 
-            // label4
+            // Unit
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(372, 92);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 16);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "Unit";
+            this.Unit.AutoSize = true;
+            this.Unit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Unit.Location = new System.Drawing.Point(372, 92);
+            this.Unit.Name = "Unit";
+            this.Unit.Size = new System.Drawing.Size(35, 16);
+            this.Unit.TabIndex = 3;
+            this.Unit.Text = "Unit";
             // 
             // label5
             // 
@@ -270,7 +271,7 @@ namespace InventoryManagement0._1
             this.Controls.Add(this.ExpirydateTimePicker);
             this.Controls.Add(this.CustomernamecomboBox);
             this.Controls.Add(this.PurchasedateTimePicker);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.Unit);
             this.Controls.Add(this.ProductTotaltextBox);
             this.Controls.Add(this.ProductPricetextBox);
             this.Controls.Add(this.ProductqtytextBox);
@@ -301,7 +302,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox ProductqtytextBox;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label Unit;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;

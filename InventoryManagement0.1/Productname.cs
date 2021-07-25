@@ -102,15 +102,16 @@ namespace InventoryManagement0._1
             }
             con.Open();
 
-            CombomboxFill();
+           
             DataGridviewFunction();
-            ClearFunction();
+          
+            CombomboxFill();
 
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CombomboxFill();
+            //CombomboxFill();
         }
 
         private void Viewbutton_Click(object sender, EventArgs e)
