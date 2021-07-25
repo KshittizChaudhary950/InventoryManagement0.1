@@ -45,6 +45,12 @@ namespace InventoryManagement0._1
             this.ProductPricetextBox = new System.Windows.Forms.TextBox();
             this.ProductTotaltextBox = new System.Windows.Forms.TextBox();
             this.PurchasedateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.CustomernamecomboBox = new System.Windows.Forms.ComboBox();
+            this.PurchasetypecomboBox = new System.Windows.Forms.ComboBox();
+            this.ExpirydateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Purchasebutton = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -63,7 +69,7 @@ namespace InventoryManagement0._1
             this.ProductcomboBox.FormattingEnabled = true;
             this.ProductcomboBox.Location = new System.Drawing.Point(204, 52);
             this.ProductcomboBox.Name = "ProductcomboBox";
-            this.ProductcomboBox.Size = new System.Drawing.Size(162, 24);
+            this.ProductcomboBox.Size = new System.Drawing.Size(203, 24);
             this.ProductcomboBox.TabIndex = 1;
             // 
             // label2
@@ -90,14 +96,14 @@ namespace InventoryManagement0._1
             // 
             this.ProductqtytextBox.Location = new System.Drawing.Point(207, 92);
             this.ProductqtytextBox.Name = "ProductqtytextBox";
-            this.ProductqtytextBox.Size = new System.Drawing.Size(106, 20);
+            this.ProductqtytextBox.Size = new System.Drawing.Size(121, 20);
             this.ProductqtytextBox.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(333, 94);
+            this.label4.Location = new System.Drawing.Point(372, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 16);
             this.label4.TabIndex = 3;
@@ -139,9 +145,9 @@ namespace InventoryManagement0._1
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(64, 246);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 16);
+            this.label8.Size = new System.Drawing.Size(117, 16);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Dealer Name";
+            this.label8.Text = "Custumer Name";
             // 
             // label9
             // 
@@ -177,14 +183,14 @@ namespace InventoryManagement0._1
             // 
             this.ProductPricetextBox.Location = new System.Drawing.Point(207, 131);
             this.ProductPricetextBox.Name = "ProductPricetextBox";
-            this.ProductPricetextBox.Size = new System.Drawing.Size(106, 20);
+            this.ProductPricetextBox.Size = new System.Drawing.Size(121, 20);
             this.ProductPricetextBox.TabIndex = 2;
             // 
             // ProductTotaltextBox
             // 
             this.ProductTotaltextBox.Location = new System.Drawing.Point(207, 173);
             this.ProductTotaltextBox.Name = "ProductTotaltextBox";
-            this.ProductTotaltextBox.Size = new System.Drawing.Size(106, 20);
+            this.ProductTotaltextBox.Size = new System.Drawing.Size(121, 20);
             this.ProductTotaltextBox.TabIndex = 2;
             // 
             // PurchasedateTimePicker
@@ -195,11 +201,73 @@ namespace InventoryManagement0._1
             this.PurchasedateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.PurchasedateTimePicker.TabIndex = 5;
             // 
+            // CustomernamecomboBox
+            // 
+            this.CustomernamecomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomernamecomboBox.FormattingEnabled = true;
+            this.CustomernamecomboBox.Location = new System.Drawing.Point(207, 246);
+            this.CustomernamecomboBox.Name = "CustomernamecomboBox";
+            this.CustomernamecomboBox.Size = new System.Drawing.Size(121, 24);
+            this.CustomernamecomboBox.TabIndex = 6;
+            // 
+            // PurchasetypecomboBox
+            // 
+            this.PurchasetypecomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PurchasetypecomboBox.FormattingEnabled = true;
+            this.PurchasetypecomboBox.Location = new System.Drawing.Point(207, 282);
+            this.PurchasetypecomboBox.Name = "PurchasetypecomboBox";
+            this.PurchasetypecomboBox.Size = new System.Drawing.Size(121, 24);
+            this.PurchasetypecomboBox.TabIndex = 6;
+            // 
+            // ExpirydateTimePicker
+            // 
+            this.ExpirydateTimePicker.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExpirydateTimePicker.Location = new System.Drawing.Point(204, 314);
+            this.ExpirydateTimePicker.Name = "ExpirydateTimePicker";
+            this.ExpirydateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.ExpirydateTimePicker.TabIndex = 5;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(204, 350);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 7;
+            // 
+            // Purchasebutton
+            // 
+            this.Purchasebutton.BackColor = System.Drawing.Color.Cyan;
+            this.Purchasebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Purchasebutton.Location = new System.Drawing.Point(204, 393);
+            this.Purchasebutton.Name = "Purchasebutton";
+            this.Purchasebutton.Size = new System.Drawing.Size(200, 34);
+            this.Purchasebutton.TabIndex = 11;
+            this.Purchasebutton.Text = "Purchase Product";
+            this.Purchasebutton.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BackColor = System.Drawing.Color.Cyan;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(711, 461);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(56, 20);
+            this.label11.TabIndex = 12;
+            this.label11.Text = "Home";
+            // 
             // Purchase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Silver;
             this.ClientSize = new System.Drawing.Size(838, 500);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.Purchasebutton);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.PurchasetypecomboBox);
+            this.Controls.Add(this.ExpirydateTimePicker);
+            this.Controls.Add(this.CustomernamecomboBox);
             this.Controls.Add(this.PurchasedateTimePicker);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ProductTotaltextBox);
@@ -242,5 +310,11 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.TextBox ProductPricetextBox;
         private System.Windows.Forms.TextBox ProductTotaltextBox;
         private System.Windows.Forms.DateTimePicker PurchasedateTimePicker;
+        private System.Windows.Forms.ComboBox CustomernamecomboBox;
+        private System.Windows.Forms.ComboBox PurchasetypecomboBox;
+        private System.Windows.Forms.DateTimePicker ExpirydateTimePicker;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button Purchasebutton;
+        private System.Windows.Forms.Label label11;
     }
 }
