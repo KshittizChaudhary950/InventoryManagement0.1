@@ -19,6 +19,24 @@ namespace InventoryManagement0._1
         {
             InitializeComponent();
         }
+        public void ClearFunction()
+        {
+            ProductcomboBox.SelectedItem = null;
+            ProductqtytextBox.Clear();
+            Unit.Text= null;
+            ProductPricetextBox.Clear();
+            ProductTotaltextBox.Clear();
+
+            PurchasedateTimePicker.Value.ToString("");
+            CustomernamecomboBox.SelectedItem = null;
+
+            PurchasetypecomboBox.SelectedItem = null;
+            ExpirydateTimePicker.Value.ToString("");
+            ProfittextBox.Clear();
+            ProductcomboBox.Focus();
+
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -117,13 +135,61 @@ namespace InventoryManagement0._1
         {
             SqlConnection con = new SqlConnection(cs);
 
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "";
-            cmd.ExecuteNonQuery();
+            // Insert part
 
-            con.Close();
+            string query = "insert into Purchase (ProductName,ProductQty, ProductUnit,ProductPrice,ProductTotal,PurchaseDate , PurchasePartyName,PurchaseType,ExpiryDate,Profit) values (@Productname,@Qty,@unit,@price,@total,@pdate,@Prname,@ptype,@expriy,@profit)";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@Productname",ProductcomboBox.Text);
+
+            cmd.Parameters.AddWithValue("@Qty", ProductqtytextBox.Text);
+            cmd.Parameters.AddWithValue("@unit", Unit.Text); 
+
+            cmd.Parameters.AddWithValue("@price", ProductPricetextBox.Text);
+            cmd.Parameters.AddWithValue("@total", ProductTotaltextBox.Text);
+            cmd.Parameters.AddWithValue("@pdate", PurchasedateTimePicker.Value.ToString("dd-MM-yyyy"));
+            cmd.Parameters.AddWithValue("@Prname", CustomernamecomboBox.Text);
+
+            cmd.Parameters.AddWithValue("@ptype", PurchasetypecomboBox.Text);
+            cmd.Parameters.AddWithValue("@expriy", ExpirydateTimePicker.Value.ToString("dd-MM-yyyy"));
+            cmd.Parameters.AddWithValue("@profit", ProfittextBox.Text);
+          
+
+            con.Open();
+
+          
+
+
+
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+
+                        MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please fill up all field");
+                }
+
+
+
+
+                con.Close();
+
+           
+           
         }
     }
 }
