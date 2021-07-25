@@ -21,5 +21,12 @@ namespace InventoryManagement0._1
         {
 
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MDIParent1 mdi1 = new MDIParent1();
+            mdi1.Show();
+        }
     }
 }

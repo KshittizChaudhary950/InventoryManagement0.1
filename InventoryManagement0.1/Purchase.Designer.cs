@@ -255,6 +255,7 @@ namespace InventoryManagement0._1
             this.label11.Size = new System.Drawing.Size(56, 20);
             this.label11.TabIndex = 12;
             this.label11.Text = "Home";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // Purchase
             // 
