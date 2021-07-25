@@ -48,7 +48,7 @@ namespace InventoryManagement0._1
             this.CustomernamecomboBox = new System.Windows.Forms.ComboBox();
             this.PurchasetypecomboBox = new System.Windows.Forms.ComboBox();
             this.ExpirydateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ProfittextBox = new System.Windows.Forms.TextBox();
             this.Purchasebutton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -95,9 +95,10 @@ namespace InventoryManagement0._1
             // 
             // ProductqtytextBox
             // 
+            this.ProductqtytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductqtytextBox.Location = new System.Drawing.Point(207, 92);
             this.ProductqtytextBox.Name = "ProductqtytextBox";
-            this.ProductqtytextBox.Size = new System.Drawing.Size(121, 20);
+            this.ProductqtytextBox.Size = new System.Drawing.Size(121, 22);
             this.ProductqtytextBox.TabIndex = 2;
             // 
             // Unit
@@ -182,17 +183,20 @@ namespace InventoryManagement0._1
             // 
             // ProductPricetextBox
             // 
+            this.ProductPricetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductPricetextBox.Location = new System.Drawing.Point(207, 131);
             this.ProductPricetextBox.Name = "ProductPricetextBox";
-            this.ProductPricetextBox.Size = new System.Drawing.Size(121, 20);
-            this.ProductPricetextBox.TabIndex = 2;
+            this.ProductPricetextBox.Size = new System.Drawing.Size(121, 22);
+            this.ProductPricetextBox.TabIndex = 3;
+            this.ProductPricetextBox.Leave += new System.EventHandler(this.ProductPricetextBox_Leave);
             // 
             // ProductTotaltextBox
             // 
+            this.ProductTotaltextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProductTotaltextBox.Location = new System.Drawing.Point(207, 173);
             this.ProductTotaltextBox.Name = "ProductTotaltextBox";
-            this.ProductTotaltextBox.Size = new System.Drawing.Size(121, 20);
-            this.ProductTotaltextBox.TabIndex = 2;
+            this.ProductTotaltextBox.Size = new System.Drawing.Size(121, 22);
+            this.ProductTotaltextBox.TabIndex = 4;
             // 
             // PurchasedateTimePicker
             // 
@@ -215,6 +219,9 @@ namespace InventoryManagement0._1
             // 
             this.PurchasetypecomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PurchasetypecomboBox.FormattingEnabled = true;
+            this.PurchasetypecomboBox.Items.AddRange(new object[] {
+            "CASH\t",
+            "DEBIT"});
             this.PurchasetypecomboBox.Location = new System.Drawing.Point(207, 282);
             this.PurchasetypecomboBox.Name = "PurchasetypecomboBox";
             this.PurchasetypecomboBox.Size = new System.Drawing.Size(121, 24);
@@ -228,12 +235,13 @@ namespace InventoryManagement0._1
             this.ExpirydateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.ExpirydateTimePicker.TabIndex = 5;
             // 
-            // textBox1
+            // ProfittextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(204, 350);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.ProfittextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProfittextBox.Location = new System.Drawing.Point(204, 350);
+            this.ProfittextBox.Name = "ProfittextBox";
+            this.ProfittextBox.Size = new System.Drawing.Size(100, 22);
+            this.ProfittextBox.TabIndex = 9;
             // 
             // Purchasebutton
             // 
@@ -242,9 +250,10 @@ namespace InventoryManagement0._1
             this.Purchasebutton.Location = new System.Drawing.Point(204, 393);
             this.Purchasebutton.Name = "Purchasebutton";
             this.Purchasebutton.Size = new System.Drawing.Size(200, 34);
-            this.Purchasebutton.TabIndex = 11;
+            this.Purchasebutton.TabIndex = 10;
             this.Purchasebutton.Text = "Purchase Product";
             this.Purchasebutton.UseVisualStyleBackColor = false;
+            this.Purchasebutton.Click += new System.EventHandler(this.Purchasebutton_Click);
             // 
             // label11
             // 
@@ -266,7 +275,7 @@ namespace InventoryManagement0._1
             this.ClientSize = new System.Drawing.Size(838, 500);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Purchasebutton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ProfittextBox);
             this.Controls.Add(this.PurchasetypecomboBox);
             this.Controls.Add(this.ExpirydateTimePicker);
             this.Controls.Add(this.CustomernamecomboBox);
@@ -316,7 +325,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.ComboBox CustomernamecomboBox;
         private System.Windows.Forms.ComboBox PurchasetypecomboBox;
         private System.Windows.Forms.DateTimePicker ExpirydateTimePicker;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ProfittextBox;
         private System.Windows.Forms.Button Purchasebutton;
         private System.Windows.Forms.Label label11;
     }

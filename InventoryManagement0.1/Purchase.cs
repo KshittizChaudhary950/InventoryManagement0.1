@@ -41,6 +41,8 @@ namespace InventoryManagement0._1
             }
             con.Open();
             FilProductName(); // funtion is called
+
+            FillCustomerName();// Customer function is call
         }
         public void FilProductName()
         { // working on comboBOx
@@ -103,6 +105,24 @@ namespace InventoryManagement0._1
             {
                 CustomernamecomboBox.Items.Add(dr["CostumerName"].ToString());
             }
+            con.Close();
+        }
+
+        private void ProductPricetextBox_Leave(object sender, EventArgs e)
+        {
+            ProductTotaltextBox.Text =Convert.ToString( Convert.ToInt32( ProductqtytextBox.Text) *Convert.ToInt32 (ProductPricetextBox.Text));
+        }
+
+        private void Purchasebutton_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(cs);
+
+            con.Open();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "";
+            cmd.ExecuteNonQuery();
+
             con.Close();
         }
     }
