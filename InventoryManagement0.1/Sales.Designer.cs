@@ -48,7 +48,7 @@ namespace InventoryManagement0._1
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.Addbutton = new System.Windows.Forms.Button();
-            this.listBox = new System.Windows.Forms.ListBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Deletebutton = new System.Windows.Forms.Button();
             this.Savebutton = new System.Windows.Forms.Button();
@@ -182,6 +182,8 @@ namespace InventoryManagement0._1
             this.ProducttextBox.Name = "ProducttextBox";
             this.ProducttextBox.Size = new System.Drawing.Size(128, 22);
             this.ProducttextBox.TabIndex = 5;
+            this.ProducttextBox.TextChanged += new System.EventHandler(this.ProducttextBox_TextChanged);
+            this.ProducttextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ProducttextBox_KeyUp);
             // 
             // QtytextBox
             // 
@@ -249,13 +251,14 @@ namespace InventoryManagement0._1
             this.Addbutton.Text = "ADD";
             this.Addbutton.UseVisualStyleBackColor = false;
             // 
-            // listBox
+            // listBox1
             // 
-            this.listBox.FormattingEnabled = true;
-            this.listBox.Location = new System.Drawing.Point(132, 141);
-            this.listBox.Name = "listBox";
-            this.listBox.Size = new System.Drawing.Size(128, 108);
-            this.listBox.TabIndex = 2;
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(132, 141);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(128, 108);
+            this.listBox1.TabIndex = 2;
+            this.listBox1.Visible = false;
             // 
             // dataGridView
             // 
@@ -320,12 +323,13 @@ namespace InventoryManagement0._1
             this.Controls.Add(this.Savebutton);
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.listBox);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Sales";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sales";
+            this.Load += new System.EventHandler(this.Sales_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -357,7 +361,7 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ProducttextBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ListBox listBox;
+        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Button Deletebutton;
         private System.Windows.Forms.Button Savebutton;
