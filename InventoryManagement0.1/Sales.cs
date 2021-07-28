@@ -34,7 +34,12 @@ namespace InventoryManagement0._1
 
         private void ProducttextBox_KeyUp(object sender, KeyEventArgs e)
         {
+            SqlConnection con = new SqlConnection(cs);
             listBox1.Visible = true;
+            listBox1.Items.Clear();
+            SqlCommand cmd = con.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "select * from Stock where Product_name like()";
         }
 
         private void ProducttextBox_TextChanged(object sender, EventArgs e)
