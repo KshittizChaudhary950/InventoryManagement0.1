@@ -30,24 +30,24 @@ namespace InventoryManagement0._1
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.FirstnametextBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LastnametextBox = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.LastnametextBox = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.FirstnametextBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.ProducttextBox = new System.Windows.Forms.TextBox();
-            this.QtytextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.PricetextBox = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.Addbutton = new System.Windows.Forms.Button();
             this.TotaltextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.Addbutton = new System.Windows.Forms.Button();
+            this.PricetextBox = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.QtytextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.ProducttextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.Deletebutton = new System.Windows.Forms.Button();
@@ -74,60 +74,13 @@ namespace InventoryManagement0._1
             this.panel1.Size = new System.Drawing.Size(1076, 60);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // dateTimePicker1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(32, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "First Name";
-            // 
-            // FirstnametextBox
-            // 
-            this.FirstnametextBox.Location = new System.Drawing.Point(120, 22);
-            this.FirstnametextBox.Name = "FirstnametextBox";
-            this.FirstnametextBox.Size = new System.Drawing.Size(128, 20);
-            this.FirstnametextBox.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(535, 22);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 16);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Bill Type";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(765, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(67, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Bill Date";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(281, 23);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(82, 16);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Last Name";
-            // 
-            // LastnametextBox
-            // 
-            this.LastnametextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LastnametextBox.Location = new System.Drawing.Point(369, 21);
-            this.LastnametextBox.Name = "LastnametextBox";
-            this.LastnametextBox.Size = new System.Drawing.Size(128, 22);
-            this.LastnametextBox.TabIndex = 2;
+            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(853, 23);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(208, 22);
+            this.dateTimePicker1.TabIndex = 4;
             // 
             // comboBox1
             // 
@@ -141,13 +94,60 @@ namespace InventoryManagement0._1
             this.comboBox1.Size = new System.Drawing.Size(121, 24);
             this.comboBox1.TabIndex = 3;
             // 
-            // dateTimePicker1
+            // LastnametextBox
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(853, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(208, 22);
-            this.dateTimePicker1.TabIndex = 4;
+            this.LastnametextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastnametextBox.Location = new System.Drawing.Point(369, 21);
+            this.LastnametextBox.Name = "LastnametextBox";
+            this.LastnametextBox.Size = new System.Drawing.Size(128, 22);
+            this.LastnametextBox.TabIndex = 2;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(281, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 16);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Last Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(765, 30);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(67, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Bill Date";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(535, 22);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(70, 16);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Bill Type";
+            // 
+            // FirstnametextBox
+            // 
+            this.FirstnametextBox.Location = new System.Drawing.Point(120, 22);
+            this.FirstnametextBox.Name = "FirstnametextBox";
+            this.FirstnametextBox.Size = new System.Drawing.Size(128, 20);
+            this.FirstnametextBox.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(32, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(83, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "First Name";
             // 
             // panel2
             // 
@@ -165,61 +165,17 @@ namespace InventoryManagement0._1
             this.panel2.Size = new System.Drawing.Size(1076, 57);
             this.panel2.TabIndex = 1;
             // 
-            // label5
+            // Addbutton
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(32, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(61, 16);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Product";
-            // 
-            // ProducttextBox
-            // 
-            this.ProducttextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProducttextBox.Location = new System.Drawing.Point(120, 14);
-            this.ProducttextBox.Name = "ProducttextBox";
-            this.ProducttextBox.Size = new System.Drawing.Size(128, 22);
-            this.ProducttextBox.TabIndex = 5;
-            this.ProducttextBox.TextChanged += new System.EventHandler(this.ProducttextBox_TextChanged);
-            this.ProducttextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ProducttextBox_KeyUp);
-            // 
-            // QtytextBox
-            // 
-            this.QtytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.QtytextBox.Location = new System.Drawing.Point(605, 19);
-            this.QtytextBox.Name = "QtytextBox";
-            this.QtytextBox.Size = new System.Drawing.Size(67, 22);
-            this.QtytextBox.TabIndex = 7;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(535, 23);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 16);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Qty";
-            // 
-            // PricetextBox
-            // 
-            this.PricetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PricetextBox.Location = new System.Drawing.Point(369, 19);
-            this.PricetextBox.Name = "PricetextBox";
-            this.PricetextBox.Size = new System.Drawing.Size(128, 22);
-            this.PricetextBox.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(281, 20);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 16);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Price";
+            this.Addbutton.BackColor = System.Drawing.Color.Aqua;
+            this.Addbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Addbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Addbutton.Location = new System.Drawing.Point(986, 14);
+            this.Addbutton.Name = "Addbutton";
+            this.Addbutton.Size = new System.Drawing.Size(75, 27);
+            this.Addbutton.TabIndex = 9;
+            this.Addbutton.Text = "ADD";
+            this.Addbutton.UseVisualStyleBackColor = false;
             // 
             // TotaltextBox
             // 
@@ -239,17 +195,63 @@ namespace InventoryManagement0._1
             this.label8.TabIndex = 10;
             this.label8.Text = "Total";
             // 
-            // Addbutton
+            // PricetextBox
             // 
-            this.Addbutton.BackColor = System.Drawing.Color.Aqua;
-            this.Addbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbutton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Addbutton.Location = new System.Drawing.Point(986, 14);
-            this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(75, 27);
-            this.Addbutton.TabIndex = 9;
-            this.Addbutton.Text = "ADD";
-            this.Addbutton.UseVisualStyleBackColor = false;
+            this.PricetextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PricetextBox.Location = new System.Drawing.Point(369, 19);
+            this.PricetextBox.Name = "PricetextBox";
+            this.PricetextBox.Size = new System.Drawing.Size(128, 22);
+            this.PricetextBox.TabIndex = 6;
+            this.PricetextBox.Enter += new System.EventHandler(this.PricetextBox_Enter);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(281, 20);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(44, 16);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Price";
+            // 
+            // QtytextBox
+            // 
+            this.QtytextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.QtytextBox.Location = new System.Drawing.Point(605, 19);
+            this.QtytextBox.Name = "QtytextBox";
+            this.QtytextBox.Size = new System.Drawing.Size(67, 22);
+            this.QtytextBox.TabIndex = 7;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(535, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 16);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Qty";
+            // 
+            // ProducttextBox
+            // 
+            this.ProducttextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProducttextBox.Location = new System.Drawing.Point(120, 14);
+            this.ProducttextBox.Name = "ProducttextBox";
+            this.ProducttextBox.Size = new System.Drawing.Size(128, 22);
+            this.ProducttextBox.TabIndex = 5;
+            this.ProducttextBox.TextChanged += new System.EventHandler(this.ProducttextBox_TextChanged);
+            this.ProducttextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ProducttextBox_KeyDown);
+            this.ProducttextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ProducttextBox_KeyUp);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(32, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 16);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Product";
             // 
             // listBox1
             // 
@@ -259,6 +261,7 @@ namespace InventoryManagement0._1
             this.listBox1.Size = new System.Drawing.Size(128, 108);
             this.listBox1.TabIndex = 2;
             this.listBox1.Visible = false;
+            this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
             // 
             // dataGridView
             // 
