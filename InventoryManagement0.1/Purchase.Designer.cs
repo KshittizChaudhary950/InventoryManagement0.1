@@ -225,7 +225,7 @@ namespace InventoryManagement0._1
             this.PurchasetypecomboBox.Location = new System.Drawing.Point(207, 282);
             this.PurchasetypecomboBox.Name = "PurchasetypecomboBox";
             this.PurchasetypecomboBox.Size = new System.Drawing.Size(121, 24);
-            this.PurchasetypecomboBox.TabIndex = 6;
+            this.PurchasetypecomboBox.TabIndex = 7;
             // 
             // ExpirydateTimePicker
             // 
@@ -233,7 +233,7 @@ namespace InventoryManagement0._1
             this.ExpirydateTimePicker.Location = new System.Drawing.Point(204, 314);
             this.ExpirydateTimePicker.Name = "ExpirydateTimePicker";
             this.ExpirydateTimePicker.Size = new System.Drawing.Size(200, 20);
-            this.ExpirydateTimePicker.TabIndex = 5;
+            this.ExpirydateTimePicker.TabIndex = 8;
             // 
             // ProfittextBox
             // 
@@ -263,7 +263,7 @@ namespace InventoryManagement0._1
             this.label11.Location = new System.Drawing.Point(711, 461);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(56, 20);
-            this.label11.TabIndex = 12;
+            this.label11.TabIndex = 11;
             this.label11.Text = "Home";
             this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
@@ -272,7 +272,7 @@ namespace InventoryManagement0._1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Silver;
-            this.ClientSize = new System.Drawing.Size(838, 500);
+            this.ClientSize = new System.Drawing.Size(786, 500);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.Purchasebutton);
             this.Controls.Add(this.ProfittextBox);
