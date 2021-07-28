@@ -37,6 +37,64 @@ namespace InventoryManagement0._1
 
 
         }
+        public void InsertPurchase()
+        {
+            // Insert part
+            SqlConnection con = new SqlConnection(cs);
+
+            string query = "insert into Purchase (ProductName,ProductQty, ProductUnit,ProductPrice,ProductTotal,PurchaseDate , PurchasePartyName,PurchaseType,ExpiryDate,Profit) values (@Productname,@Qty,@unit,@price,@total,@pdate,@Prname,@ptype,@expriy,@profit)";
+            SqlCommand cmd = new SqlCommand(query, con);
+
+            cmd.Parameters.AddWithValue("@Productname", ProductcomboBox.Text);
+
+            cmd.Parameters.AddWithValue("@Qty", ProductqtytextBox.Text);
+            cmd.Parameters.AddWithValue("@unit", Unit.Text);
+
+            cmd.Parameters.AddWithValue("@price", ProductPricetextBox.Text);
+            cmd.Parameters.AddWithValue("@total", ProductTotaltextBox.Text);
+            cmd.Parameters.AddWithValue("@pdate", PurchasedateTimePicker.Value.ToString("dd-MM-yyyy"));
+            cmd.Parameters.AddWithValue("@Prname", CustomernamecomboBox.Text);
+
+            cmd.Parameters.AddWithValue("@ptype", PurchasetypecomboBox.Text);
+            cmd.Parameters.AddWithValue("@expriy", ExpirydateTimePicker.Value.ToString("dd-MM-yyyy"));
+            cmd.Parameters.AddWithValue("@profit", ProfittextBox.Text);
+
+
+            con.Open();
+
+
+
+            if (ProductcomboBox.Text != "" && ProductqtytextBox.Text != "" && ProductPricetextBox.Text != "" && PurchasetypecomboBox.Text != "")
+            {
+
+                try
+                {
+                    int a = cmd.ExecuteNonQuery();
+                    if (a > 0)
+                    {
+
+                        MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }
+
+                    else
+                    {
+                        MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                    }
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("Please fill up all field");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please insert all information");
+            }
+
+        }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -135,64 +193,118 @@ namespace InventoryManagement0._1
         {
             SqlConnection con = new SqlConnection(cs);
 
-            // Insert part
-
-            string query = "insert into Purchase (ProductName,ProductQty, ProductUnit,ProductPrice,ProductTotal,PurchaseDate , PurchasePartyName,PurchaseType,ExpiryDate,Profit) values (@Productname,@Qty,@unit,@price,@total,@pdate,@Prname,@ptype,@expriy,@profit)";
-            SqlCommand cmd = new SqlCommand(query, con);
-
-            cmd.Parameters.AddWithValue("@Productname",ProductcomboBox.Text);
-
-            cmd.Parameters.AddWithValue("@Qty", ProductqtytextBox.Text);
-            cmd.Parameters.AddWithValue("@unit", Unit.Text); 
-
-            cmd.Parameters.AddWithValue("@price", ProductPricetextBox.Text);
-            cmd.Parameters.AddWithValue("@total", ProductTotaltextBox.Text);
-            cmd.Parameters.AddWithValue("@pdate", PurchasedateTimePicker.Value.ToString("dd-MM-yyyy"));
-            cmd.Parameters.AddWithValue("@Prname", CustomernamecomboBox.Text);
-
-            cmd.Parameters.AddWithValue("@ptype", PurchasetypecomboBox.Text);
-            cmd.Parameters.AddWithValue("@expriy", ExpirydateTimePicker.Value.ToString("dd-MM-yyyy"));
-            cmd.Parameters.AddWithValue("@profit", ProfittextBox.Text);
-          
-
+            int a;
             con.Open();
+            SqlCommand cmd1 = con.CreateCommand();
+            cmd1.CommandType = CommandType.Text;
+            cmd1.CommandText = "select*from Stock where Product_name ='" + ProductcomboBox.Text+"'";
+            cmd1.ExecuteNonQuery();
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+
+            da1.Fill(dt1);
+            a = Convert.ToInt32(dt1.Rows.Count.ToString());
 
 
-
-            if (ProductcomboBox.Text != "" && ProductqtytextBox.Text != "" && ProductPricetextBox.Text != "" && PurchasetypecomboBox.Text != "")
+            if (a == 0)
             {
+                InsertPurchase();
+                // Insert part
 
-                try
+                SqlConnection con2 = new SqlConnection(cs);
+
+                string query = "insert into Stock (Product_name,Product_qty, Product_unit) values (@Productname,@Qty,@unit)";
+                SqlCommand cmd2 = new SqlCommand(query, con2);
+
+                cmd2.Parameters.AddWithValue("@Productname", ProductcomboBox.Text);
+
+                cmd2.Parameters.AddWithValue("@Qty", ProductqtytextBox.Text);
+                cmd2.Parameters.AddWithValue("@unit", Unit.Text);
+
+         
+
+                con2.Open();
+
+
+
+                if (ProductcomboBox.Text != "" && ProductqtytextBox.Text != "" && Unit.Text!="")
                 {
-                    int a = cmd.ExecuteNonQuery();
-                    if (a > 0)
+
+                    try
+                    {
+                        int i = cmd2.ExecuteNonQuery();
+                        if (i > 0)
+                        {
+
+                            MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+
+                        }
+                    }
+                    catch (Exception)
                     {
 
-                        MessageBox.Show("Inserted successfully", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                    }
-
-                    else
-                    {
-                        MessageBox.Show("Please fill all fields in correct manner", "Failed", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
-
+                        MessageBox.Show("Please fill up all field");
                     }
                 }
-                catch (Exception)
+                else
                 {
-
-                    MessageBox.Show("Please fill up all field");
+                    MessageBox.Show("Please insert all information");
                 }
+
             }
             else
             {
-                MessageBox.Show("Please insert all information");
+                InsertPurchase();
+
+             
+                SqlConnection con4 = new SqlConnection(cs);
+
+                string query2 = "Update Stock set Product_qty=@Product_qty where Product_name=@productname";
+                SqlCommand cmd4 = new SqlCommand(query2, con4);
+                cmd4.Parameters.AddWithValue("@productname", ProductcomboBox.Text); 
+                cmd4.Parameters.AddWithValue("@Product_qty", ProductqtytextBox.Text);
+              
+               
+                con4.Open();
+
+                if (ProductqtytextBox.Text!="" && ProductcomboBox.Text!="")
+                {
+                    int b = cmd4.ExecuteNonQuery();
+
+                    if (b > 0)
+                    {
+
+                        MessageBox.Show("Stock is updated");
+                    }
+                    else
+                    {
+                       
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Unable to update stock");
+                }
+                con4.Close();
+
+
+
             }
 
 
+            con.Close();
+
+            
+
             ClearFunction();
 
-                con.Close();
+            
 
            
            
