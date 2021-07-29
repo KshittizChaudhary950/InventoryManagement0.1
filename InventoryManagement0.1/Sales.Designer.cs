@@ -54,6 +54,7 @@ namespace InventoryManagement0._1
             this.Savebutton = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -152,6 +153,7 @@ namespace InventoryManagement0._1
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.Addbutton);
             this.panel2.Controls.Add(this.TotaltextBox);
             this.panel2.Controls.Add(this.label8);
@@ -186,6 +188,7 @@ namespace InventoryManagement0._1
             this.TotaltextBox.Name = "TotaltextBox";
             this.TotaltextBox.Size = new System.Drawing.Size(128, 22);
             this.TotaltextBox.TabIndex = 8;
+            this.TotaltextBox.TextChanged += new System.EventHandler(this.TotaltextBox_TextChanged);
             // 
             // label8
             // 
@@ -320,6 +323,18 @@ namespace InventoryManagement0._1
             this.label10.TabIndex = 13;
             this.label10.Text = "0";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Aqua;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(902, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 26);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "TOTAL";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Sales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,5 +390,6 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.Button Savebutton;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -42,21 +42,31 @@ namespace InventoryManagement0._1
 
         private void ProducttextBox_KeyUp(object sender, KeyEventArgs e)
         {
-            SqlConnection con = new SqlConnection(cs);
-            listBox1.Visible = true;
-            listBox1.Items.Clear();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select * from Stock where Product_name like('"+ProducttextBox.Text+"%')";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-
-            foreach(DataRow dr in dt.Rows)
+            try
             {
-                listBox1.Items.Add(dr["Product_name"].ToString());
+                SqlConnection con = new SqlConnection(cs);
+                listBox1.Visible = true;
+                listBox1.Items.Clear();
+
+
+                string query = "select * from Stock where Product_name like @Productname +'%'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Productname", ProducttextBox.Text);
+
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    listBox1.Items.Add(dr["Product_name"].ToString());
+                }
             }
+            catch (Exception ex)
+            {
+                
+            }
+           
         }
 
         private void ProducttextBox_TextChanged(object sender, EventArgs e)
@@ -90,7 +100,7 @@ namespace InventoryManagement0._1
                 {
                     ProducttextBox.Text = listBox1.SelectedItem.ToString();
                     listBox1.Visible = false;
-                    ProducttextBox.Focus();
+                   PricetextBox.Focus();
                 }
 
             }
@@ -102,32 +112,38 @@ namespace InventoryManagement0._1
 
         private void PricetextBox_Enter(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(cs);
 
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select top1 * from Purchase where ProductName ('" + ProducttextBox.Text + "' order by id desc)";
-            cmd.ExecuteNonQuery();
-            DataTable dt = new DataTable();
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            da.Fill(dt);
-            foreach(DataRow dr in dt.Rows)
-            {
-                PricetextBox.Text = dr["ProductPrice"].ToString();
-            }
-        }
-
-        private void QtytextBox_Leave(object sender, EventArgs e)
-        {
             try
             {
-                TotaltextBox.Text =Convert.ToString(Convert.ToInt32 (QtytextBox.Text) * Convert.ToInt32(PricetextBox.Text));
+
+                SqlConnection con = new SqlConnection(cs);
+                string query = "select * from Purchase where ProductName=@productname ";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@productname", ProducttextBox.Text);
+
+                // cmd.ExecuteNonQuery();
+                DataTable dt = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                foreach (DataRow dr in dt.Rows)
+                {
+                    PricetextBox.Text = dr["ProductPrice"].ToString();
+                }
             }
             catch (Exception ex)
             {
 
-
             }
+         
+
+        }
+
+        private void QtytextBox_Leave(object sender, EventArgs e)
+        {
+
+            TotaltextBox.Text= Convert.ToString(Convert.ToInt32(PricetextBox.Text) *Convert.ToInt32(QtytextBox.Text));
+            
+          
         }
 
         private void Addbutton_Click(object sender, EventArgs e)
@@ -163,7 +179,16 @@ namespace InventoryManagement0._1
                 label10.Text = total.ToString();
             }
         }
-       
 
+        private void TotaltextBox_TextChanged(object sender, EventArgs e)
+        {//this is not working 
+          //  TotaltextBox.Text = Convert.ToString(Convert.ToInt32(QtytextBox.Text) * Convert.ToInt32(PricetextBox.Text));
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TotaltextBox.Text = Convert.ToString(Convert.ToInt32(QtytextBox.Text) * Convert.ToInt32(PricetextBox.Text));
+        }
     }
 }
