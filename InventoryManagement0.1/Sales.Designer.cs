@@ -134,9 +134,10 @@ namespace InventoryManagement0._1
             // 
             // FirstnametextBox
             // 
+            this.FirstnametextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FirstnametextBox.Location = new System.Drawing.Point(120, 22);
             this.FirstnametextBox.Name = "FirstnametextBox";
-            this.FirstnametextBox.Size = new System.Drawing.Size(128, 20);
+            this.FirstnametextBox.Size = new System.Drawing.Size(128, 22);
             this.FirstnametextBox.TabIndex = 1;
             // 
             // label1
@@ -176,6 +177,7 @@ namespace InventoryManagement0._1
             this.Addbutton.TabIndex = 9;
             this.Addbutton.Text = "ADD";
             this.Addbutton.UseVisualStyleBackColor = false;
+            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // TotaltextBox
             // 
@@ -221,6 +223,7 @@ namespace InventoryManagement0._1
             this.QtytextBox.Name = "QtytextBox";
             this.QtytextBox.Size = new System.Drawing.Size(67, 22);
             this.QtytextBox.TabIndex = 7;
+            this.QtytextBox.Leave += new System.EventHandler(this.QtytextBox_Leave);
             // 
             // label6
             // 
@@ -255,10 +258,12 @@ namespace InventoryManagement0._1
             // 
             // listBox1
             // 
+            this.listBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(132, 141);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(128, 108);
+            this.listBox1.Size = new System.Drawing.Size(128, 100);
             this.listBox1.TabIndex = 2;
             this.listBox1.Visible = false;
             this.listBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);

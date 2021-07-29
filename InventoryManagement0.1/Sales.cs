@@ -16,6 +16,8 @@ namespace InventoryManagement0._1
     public partial class Sales : Form
     {
         string cs = ConfigurationManager.ConnectionStrings["dbcs1"].ConnectionString;
+        DataTable dt = new DataTable();
+        int total = 0;
         public Sales()
         {
             InitializeComponent();
@@ -30,6 +32,12 @@ namespace InventoryManagement0._1
                 con.Close();
             }
             con.Open();
+
+            dt.Clear();
+            dt.Columns.Add("product");
+            dt.Columns.Add("price");
+            dt.Columns.Add("qty");
+            dt.Columns.Add("Total");
         }
 
         private void ProducttextBox_KeyUp(object sender, KeyEventArgs e)
@@ -108,5 +116,54 @@ namespace InventoryManagement0._1
                 PricetextBox.Text = dr["ProductPrice"].ToString();
             }
         }
+
+        private void QtytextBox_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                TotaltextBox.Text =Convert.ToString(Convert.ToInt32 (QtytextBox.Text) * Convert.ToInt32(PricetextBox.Text));
+            }
+            catch (Exception ex)
+            {
+
+
+            }
+        }
+
+        private void Addbutton_Click(object sender, EventArgs e)
+        {
+            int stock = 0;
+            SqlCommand cmd1 = new SqlCommand();
+            cmd1.CommandType = CommandType.Text;
+            cmd1.CommandText = "select*from Stock where Product_name='" + ProducttextBox.Text + "'";
+            cmd1.ExecuteNonQuery();
+
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
+            da1.Fill(dt1);
+
+            foreach (DataRow dr in dt1.Rows)
+            {
+                stock = Convert.ToInt32(dr["Product_qty"].ToString());
+            }
+            if (Convert.ToInt32(QtytextBox.Text) > stock)
+            {
+                MessageBox.Show("This much value is not aviable");
+            }
+            else
+            {
+                DataRow dr = dt.NewRow();
+                dr["product"] = ProducttextBox.Text;
+                dr["price"] = PricetextBox.Text;
+                dr["qty"] = QtytextBox.Text;
+                dr["Total"] = TotaltextBox.Text;
+                dt.Rows.Add(dr);
+                dataGridView.DataSource = dt;
+                total = total +Convert.ToInt32( dr["Total"].ToString());
+                label10.Text = total.ToString();
+            }
+        }
+       
+
     }
 }
