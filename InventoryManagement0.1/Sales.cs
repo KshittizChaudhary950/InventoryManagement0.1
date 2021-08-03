@@ -222,47 +222,64 @@ namespace InventoryManagement0._1
 
         private void Savebutton_Click(object sender, EventArgs e)
         {
-            string order_id = "";
-            SqlConnection con = new SqlConnection(cs);
-            string query = "insert into Order_user (firstname,lastname,BillType,purchaseDate) values(@firstname,@lastname,@Billtype,@purchaseDate)";
-            SqlCommand cmd = new SqlCommand(query,con);
-            cmd.Parameters.AddWithValue("@firstname",FirstnametextBox.Text);
-            cmd.Parameters.AddWithValue("@lastname",LastnametextBox.Text);
-            cmd.Parameters.AddWithValue("@Billtype",comboBox1.Text) ;
-            cmd.Parameters.AddWithValue("@purchaseDate",dateTimePicker1.Value.ToString("dd-MM-yyyy"));
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            SqlConnection con2 = new SqlConnection(cs);
-            string query2 = "select top 1* from order_user order by Orderid desc";
-           SqlCommand cmd2 = new SqlCommand(query2, con2);
-            con2.Open();
-            cmd2.ExecuteNonQuery();
-
-            SqlDataAdapter sda = new SqlDataAdapter(query2, con2);
-            DataTable data = new DataTable();
-            sda.Fill(data);
-            foreach  (DataRow dr2 in data.Rows)
+            try
             {
-                order_id = dr2["Orderid"].ToString();
+                if (FirstnametextBox.Text != "" && ProducttextBox.Text != "" && TotaltextBox.Text != "")
+                {
+                    string order_id = "";
+                    SqlConnection con = new SqlConnection(cs);
+                    string query = "insert into Order_user (firstname,lastname,BillType,purchaseDate) values(@firstname,@lastname,@Billtype,@purchaseDate)";
+                    SqlCommand cmd = new SqlCommand(query, con);
+                    cmd.Parameters.AddWithValue("@firstname", FirstnametextBox.Text);
+                    cmd.Parameters.AddWithValue("@lastname", LastnametextBox.Text);
+                    cmd.Parameters.AddWithValue("@Billtype", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@purchaseDate", dateTimePicker1.Value.ToString("dd-MM-yyyy"));
+                    con.Open();
+                    cmd.ExecuteNonQuery();
+                    con.Close();
+
+                    SqlConnection con2 = new SqlConnection(cs);
+                    string query2 = "select top 1* from order_user order by Orderid desc";
+                    SqlCommand cmd2 = new SqlCommand(query2, con2);
+                    con2.Open();
+                    cmd2.ExecuteNonQuery();
+
+                    SqlDataAdapter sda = new SqlDataAdapter(query2, con2);
+                    DataTable data = new DataTable();
+                    sda.Fill(data);
+                    foreach (DataRow dr2 in data.Rows)
+                    {
+                        order_id = dr2["Orderid"].ToString();
+                    }
+
+
+                    con2.Close();
+                    SqlConnection con3 = new SqlConnection(cs);
+                    string query3 = "insert into Order_item (Order_id,Product,Price,Qty,Total) values(@order,@Product,@Price,@Qty,@total)";
+
+                    SqlCommand cmd3 = new SqlCommand(query3, con3);
+                    cmd3.Parameters.AddWithValue("@order", order_id);
+                    cmd3.Parameters.AddWithValue("@Product", ProducttextBox.Text);
+                    cmd3.Parameters.AddWithValue("@Price", PricetextBox.Text);
+                    cmd3.Parameters.AddWithValue("@Qty", QtytextBox.Text);
+                    cmd3.Parameters.AddWithValue("total", TotaltextBox.Text);
+                    con3.Open();
+                    cmd3.ExecuteNonQuery();
+                    con3.Close();
+
+                    MessageBox.Show("Your data is sucessfully save");
+                }
+                else
+                {
+                    MessageBox.Show("Please fill all information");
+                }
+
             }
+            catch (Exception ex)
+            {
 
-
-            con2.Close();
-            SqlConnection con3 = new SqlConnection(cs);
-                string query3 = "insert into Order_item (Order_id,Product,Price,Qty,Total) values(@order,@Product,@Price,@Qty,@total)";
-
-                SqlCommand cmd3 = new SqlCommand(query3, con3);
-               cmd3.Parameters.AddWithValue("@order", order_id);
-                cmd3.Parameters.AddWithValue("@Product",ProducttextBox.Text);
-                cmd3.Parameters.AddWithValue("@Price",PricetextBox.Text);
-                cmd3.Parameters.AddWithValue("@Qty", QtytextBox.Text);
-                cmd3.Parameters.AddWithValue("total", TotaltextBox.Text);
-                con3.Open();
-                cmd3.ExecuteNonQuery();
-                con3.Close();
-      
+            }
+            
            
 
 
