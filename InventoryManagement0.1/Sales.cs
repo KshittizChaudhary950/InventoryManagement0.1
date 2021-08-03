@@ -25,7 +25,7 @@ namespace InventoryManagement0._1
 
         private void Sales_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(cs);
+           // SqlConnection con = new SqlConnection(cs);
 
             if(con.State==ConnectionState.Open)
             {
