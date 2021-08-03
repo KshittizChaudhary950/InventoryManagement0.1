@@ -16,7 +16,7 @@ namespace InventoryManagement0._1
     public partial class Sales : Form
     {
         string cs = ConfigurationManager.ConnectionStrings["dbcs1"].ConnectionString;
-        DataTable dt = new DataTable();
+        DataTable vdt = new DataTable();
         int total = 0;
         public Sales()
         {
@@ -33,11 +33,11 @@ namespace InventoryManagement0._1
             }
             con.Open();
 
-            dt.Clear();
-            dt.Columns.Add("product");
-            dt.Columns.Add("price");
-            dt.Columns.Add("qty");
-            dt.Columns.Add("Total");
+            vdt.Clear();
+            vdt.Columns.Add("product");
+           vdt.Columns.Add("price");
+           vdt.Columns.Add("qty");
+            vdt.Columns.Add("Total");
         }
 
         private void ProducttextBox_KeyUp(object sender, KeyEventArgs e)
@@ -140,8 +140,15 @@ namespace InventoryManagement0._1
 
         private void QtytextBox_Leave(object sender, EventArgs e)
         {
-
-            TotaltextBox.Text= Convert.ToString(Convert.ToInt32(PricetextBox.Text) *Convert.ToInt32(QtytextBox.Text));
+            try
+            {
+                TotaltextBox.Text = Convert.ToString(Convert.ToInt32(PricetextBox.Text) * Convert.ToInt32(QtytextBox.Text));
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            
             
           
         }
@@ -149,18 +156,20 @@ namespace InventoryManagement0._1
         private void Addbutton_Click(object sender, EventArgs e)
         {
             int stock = 0;
-            SqlCommand cmd1 = new SqlCommand();
-            cmd1.CommandType = CommandType.Text;
-            cmd1.CommandText = "select*from Stock where Product_name='" + ProducttextBox.Text + "'";
-            cmd1.ExecuteNonQuery();
+            SqlConnection con = new SqlConnection(cs);
+            string query = "select*from Stock where Product_name=@product";
+            SqlCommand cmd1 = new SqlCommand(query,con);
+            cmd1.Parameters.Add("@product",ProducttextBox.Text);
+            //cmd1.ExecuteNonQuery();
+
 
             DataTable dt1 = new DataTable();
             SqlDataAdapter da1 = new SqlDataAdapter(cmd1);
             da1.Fill(dt1);
 
-            foreach (DataRow dr in dt1.Rows)
+            foreach (DataRow dr1 in dt1.Rows)
             {
-                stock = Convert.ToInt32(dr["Product_qty"].ToString());
+                stock = Convert.ToInt32(dr1["Product_qty"].ToString());
             }
             if (Convert.ToInt32(QtytextBox.Text) > stock)
             {
@@ -168,13 +177,13 @@ namespace InventoryManagement0._1
             }
             else
             {
-                DataRow dr = dt.NewRow();
+                DataRow dr = vdt.NewRow();
                 dr["product"] = ProducttextBox.Text;
                 dr["price"] = PricetextBox.Text;
                 dr["qty"] = QtytextBox.Text;
                 dr["Total"] = TotaltextBox.Text;
-                dt.Rows.Add(dr);
-                dataGridView.DataSource = dt;
+                vdt.Rows.Add(dr);
+                dataGridView.DataSource =vdt;
                 total = total +Convert.ToInt32( dr["Total"].ToString());
                 label10.Text = total.ToString();
             }
@@ -189,6 +198,74 @@ namespace InventoryManagement0._1
         private void button1_Click(object sender, EventArgs e)
         {
             TotaltextBox.Text = Convert.ToString(Convert.ToInt32(QtytextBox.Text) * Convert.ToInt32(PricetextBox.Text));
+        }
+
+        private void Deletebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                total = 0;
+                vdt.Rows.RemoveAt(Convert.ToInt32(dataGridView.CurrentCell.RowIndex.ToString()));
+                foreach (DataRow dr1  in vdt.Rows)
+                {
+                    total = total +Convert.ToInt32( dr1["Total"].ToString());
+                    label10.Text = total.ToString();
+
+                }
+            }
+            catch (Exception ex)
+            {
+
+                
+            }
+        }
+
+        private void Savebutton_Click(object sender, EventArgs e)
+        {
+            string order_id = "";
+            SqlConnection con = new SqlConnection(cs);
+            string query = "insert into Order_user (firstname,lastname,BillType,purchaseDate) values(@firstname,@lastname,@Billtype,@purchaseDate)";
+            SqlCommand cmd = new SqlCommand(query,con);
+            cmd.Parameters.AddWithValue("@firstname",FirstnametextBox.Text);
+            cmd.Parameters.AddWithValue("@lastname",LastnametextBox.Text);
+            cmd.Parameters.AddWithValue("@Billtype",comboBox1.Text) ;
+            cmd.Parameters.AddWithValue("@purchaseDate",dateTimePicker1.Value.ToString("dd-MM-yyyy"));
+            con.Open();
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            SqlConnection con2 = new SqlConnection(cs);
+            string query2 = "select top 1* from order_user order by Orderid desc";
+           SqlCommand cmd2 = new SqlCommand(query2, con2);
+            con2.Open();
+            cmd2.ExecuteNonQuery();
+
+            SqlDataAdapter sda = new SqlDataAdapter(query2, con2);
+            DataTable data = new DataTable();
+            sda.Fill(data);
+            foreach  (DataRow dr2 in data.Rows)
+            {
+                order_id = dr2["Orderid"].ToString();
+            }
+
+
+            con2.Close();
+            SqlConnection con3 = new SqlConnection(cs);
+                string query3 = "insert into Order_item (Order_id,Product,Price,Qty,Total) values(@order,@Product,@Price,@Qty,@total)";
+
+                SqlCommand cmd3 = new SqlCommand(query3, con3);
+               cmd3.Parameters.AddWithValue("@order", order_id);
+                cmd3.Parameters.AddWithValue("@Product",ProducttextBox.Text);
+                cmd3.Parameters.AddWithValue("@Price",PricetextBox.Text);
+                cmd3.Parameters.AddWithValue("@Qty", QtytextBox.Text);
+                cmd3.Parameters.AddWithValue("total", TotaltextBox.Text);
+                con3.Open();
+                cmd3.ExecuteNonQuery();
+                con3.Close();
+      
+           
+
+
         }
     }
 }

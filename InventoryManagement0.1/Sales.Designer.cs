@@ -276,6 +276,7 @@ namespace InventoryManagement0._1
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Location = new System.Drawing.Point(12, 272);
             this.dataGridView.Name = "dataGridView";
+            this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(832, 226);
             this.dataGridView.TabIndex = 9;
             // 
@@ -289,6 +290,7 @@ namespace InventoryManagement0._1
             this.Deletebutton.TabIndex = 10;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
+            this.Deletebutton.Click += new System.EventHandler(this.Deletebutton_Click);
             // 
             // Savebutton
             // 
@@ -300,6 +302,7 @@ namespace InventoryManagement0._1
             this.Savebutton.TabIndex = 11;
             this.Savebutton.Text = "Save and print bill";
             this.Savebutton.UseVisualStyleBackColor = false;
+            this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
             // 
             // label9
             // 
