@@ -16,7 +16,7 @@ namespace InventoryManagement0._1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Sales());
+            Application.Run(new PucharseReport());
         }
     }
 }
