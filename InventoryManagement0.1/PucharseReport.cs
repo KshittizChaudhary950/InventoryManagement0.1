@@ -68,7 +68,7 @@ namespace InventoryManagement0._1
 
             foreach (DataRow dr in dt.Rows)
             {
-                i = i + Convert.ToInt32(dr["ProductTotal"].ToString());
+               // i = i + Convert.ToInt32(dr["ProductTotal"].ToString());
             }
             total.Text = i.ToString();
         }
