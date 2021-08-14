@@ -72,5 +72,12 @@ namespace InventoryManagement0._1
             }
             total.Text = i.ToString();
         }
+
+        private void home_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MDIParent1 p1 = new MDIParent1();
+            p1.Show();
+        }
     }
 }

@@ -169,6 +169,7 @@ namespace InventoryManagement0._1
             this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
             this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.purchaseReportToolStripMenuItem.Text = "Purchase Report ";
+            this.purchaseReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 

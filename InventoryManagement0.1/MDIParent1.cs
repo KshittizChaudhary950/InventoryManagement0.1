@@ -146,5 +146,12 @@ namespace InventoryManagement0._1
             Sales s1 = new Sales();
             s1.Show();
         }
+
+        private void purchaseReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            PucharseReport p1 = new PucharseReport();
+            p1.Show();
+        }
     }
 }
