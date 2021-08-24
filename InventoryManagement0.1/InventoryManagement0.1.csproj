@@ -135,6 +135,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="PucharseReport.resx">
       <DependentUpon>PucharseReport.cs</DependentUpon>
@@ -167,6 +168,7 @@
     <Content Include="image\download %282%29.png" />
     <Content Include="image\download %283%29.jpg" />
     <Content Include="image\download.png" />
+    <None Include="Resources\itin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

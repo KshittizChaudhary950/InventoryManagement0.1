@@ -38,16 +38,19 @@ namespace InventoryManagement0._1
             this.productToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salesProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.costumerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.costumerInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.salesProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.purchaseReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -57,7 +60,8 @@ namespace InventoryManagement0._1
             this.unitsToolStripMenuItem,
             this.productToolStripMenuItem,
             this.costumerToolStripMenuItem,
-            this.reportToolStripMenuItem});
+            this.reportToolStripMenuItem,
+            this.logoutToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(632, 24);
@@ -107,16 +111,23 @@ namespace InventoryManagement0._1
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.addProductToolStripMenuItem.Text = "Add Product";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
             // purchaseToolStripMenuItem
             // 
             this.purchaseToolStripMenuItem.Name = "purchaseToolStripMenuItem";
-            this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.purchaseToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.purchaseToolStripMenuItem.Text = "Purchase Product";
             this.purchaseToolStripMenuItem.Click += new System.EventHandler(this.purchaseToolStripMenuItem_Click);
+            // 
+            // salesProductToolStripMenuItem
+            // 
+            this.salesProductToolStripMenuItem.Name = "salesProductToolStripMenuItem";
+            this.salesProductToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.salesProductToolStripMenuItem.Text = "Sales Product";
+            this.salesProductToolStripMenuItem.Click += new System.EventHandler(this.salesProductToolStripMenuItem_Click);
             // 
             // costumerToolStripMenuItem
             // 
@@ -132,6 +143,21 @@ namespace InventoryManagement0._1
             this.costumerInformationToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
             this.costumerInformationToolStripMenuItem.Text = "Costumer Information";
             this.costumerInformationToolStripMenuItem.Click += new System.EventHandler(this.costumerInformationToolStripMenuItem_Click);
+            // 
+            // reportToolStripMenuItem
+            // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.purchaseReportToolStripMenuItem});
+            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
+            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // purchaseReportToolStripMenuItem
+            // 
+            this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
+            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.purchaseReportToolStripMenuItem.Text = "Purchase Report ";
+            this.purchaseReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -149,33 +175,29 @@ namespace InventoryManagement0._1
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
             // 
-            // salesProductToolStripMenuItem
+            // pictureBox1
             // 
-            this.salesProductToolStripMenuItem.Name = "salesProductToolStripMenuItem";
-            this.salesProductToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salesProductToolStripMenuItem.Text = "Sales Product";
-            this.salesProductToolStripMenuItem.Click += new System.EventHandler(this.salesProductToolStripMenuItem_Click);
+            this.pictureBox1.Image = global::InventoryManagement0._1.Properties.Resources.itin;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(632, 401);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
-            // reportToolStripMenuItem
+            // logoutToolStripMenuItem
             // 
-            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.purchaseReportToolStripMenuItem});
-            this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
-            this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.reportToolStripMenuItem.Text = "Report";
-            // 
-            // purchaseReportToolStripMenuItem
-            // 
-            this.purchaseReportToolStripMenuItem.Name = "purchaseReportToolStripMenuItem";
-            this.purchaseReportToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.purchaseReportToolStripMenuItem.Text = "Purchase Report ";
-            this.purchaseReportToolStripMenuItem.Click += new System.EventHandler(this.purchaseReportToolStripMenuItem_Click);
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
+            this.logoutToolStripMenuItem.Text = "logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // MDIParent1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 453);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -187,6 +209,7 @@ namespace InventoryManagement0._1
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -210,6 +233,8 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.ToolStripMenuItem salesProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseReportToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
     }
 }
 

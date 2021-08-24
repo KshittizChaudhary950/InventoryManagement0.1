@@ -153,5 +153,12 @@ namespace InventoryManagement0._1
             PucharseReport p1 = new PucharseReport();
             p1.Show();
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login l1 = new Login();
+            l1.ShowDialog();
+        }
     }
 }
