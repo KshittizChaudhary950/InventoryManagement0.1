@@ -224,7 +224,7 @@ namespace InventoryManagement0._1
                 dataGridView1.DataSource = null;
             }
 
-            SearchtextBox.Clear()
+            SearchtextBox.Clear();
             SearchtextBox.Focus();
      
 
