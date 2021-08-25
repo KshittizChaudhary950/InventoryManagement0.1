@@ -44,13 +44,13 @@ namespace InventoryManagement0._1
             this.addresstextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CitytextBox = new System.Windows.Forms.TextBox();
-            this.Nametxt = new System.Windows.Forms.TextBox();
+            this.Nametxtbox = new System.Windows.Forms.TextBox();
             this.Citytxt = new System.Windows.Forms.TextBox();
             this.SearchtextBox = new System.Windows.Forms.TextBox();
-            this.Addbutton = new System.Windows.Forms.Button();
             this.Updatebutton = new System.Windows.Forms.Button();
             this.Deletebutton = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.iDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -161,6 +161,7 @@ namespace InventoryManagement0._1
             this.ContacttextBox.Name = "ContacttextBox";
             this.ContacttextBox.Size = new System.Drawing.Size(152, 22);
             this.ContacttextBox.TabIndex = 3;
+            this.ContacttextBox.TextChanged += new System.EventHandler(this.ContacttextBox_TextChanged);
             // 
             // label5
             // 
@@ -198,13 +199,13 @@ namespace InventoryManagement0._1
             this.CitytextBox.Size = new System.Drawing.Size(152, 22);
             this.CitytextBox.TabIndex = 5;
             // 
-            // Nametxt
+            // Nametxtbox
             // 
-            this.Nametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Nametxt.Location = new System.Drawing.Point(185, 106);
-            this.Nametxt.Name = "Nametxt";
-            this.Nametxt.Size = new System.Drawing.Size(152, 22);
-            this.Nametxt.TabIndex = 1;
+            this.Nametxtbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Nametxtbox.Location = new System.Drawing.Point(185, 106);
+            this.Nametxtbox.Name = "Nametxtbox";
+            this.Nametxtbox.Size = new System.Drawing.Size(152, 22);
+            this.Nametxtbox.TabIndex = 1;
             // 
             // Citytxt
             // 
@@ -222,19 +223,6 @@ namespace InventoryManagement0._1
             this.SearchtextBox.Name = "SearchtextBox";
             this.SearchtextBox.Size = new System.Drawing.Size(152, 30);
             this.SearchtextBox.TabIndex = 9;
-            // 
-            // Addbutton
-            // 
-            this.Addbutton.BackColor = System.Drawing.Color.Cyan;
-            this.Addbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Addbutton.ForeColor = System.Drawing.Color.Black;
-            this.Addbutton.Location = new System.Drawing.Point(35, 326);
-            this.Addbutton.Name = "Addbutton";
-            this.Addbutton.Size = new System.Drawing.Size(75, 30);
-            this.Addbutton.TabIndex = 7;
-            this.Addbutton.Text = "Add";
-            this.Addbutton.UseVisualStyleBackColor = false;
-            this.Addbutton.Click += new System.EventHandler(this.Addbutton_Click);
             // 
             // Updatebutton
             // 
@@ -274,16 +262,28 @@ namespace InventoryManagement0._1
             this.label7.Text = "Home";
             this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Aqua;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(44, 326);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "ADD";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CostumerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(1039, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.Deletebutton);
             this.Controls.Add(this.Updatebutton);
-            this.Controls.Add(this.Addbutton);
             this.Controls.Add(this.searchbtn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.iDnumericUpDown);
@@ -291,7 +291,7 @@ namespace InventoryManagement0._1
             this.Controls.Add(this.CitytextBox);
             this.Controls.Add(this.addresstextBox);
             this.Controls.Add(this.ContacttextBox);
-            this.Controls.Add(this.Nametxt);
+            this.Controls.Add(this.Nametxtbox);
             this.Controls.Add(this.SearchtextBox);
             this.Controls.Add(this.CompanytextBox);
             this.Controls.Add(this.NametextBox);
@@ -330,12 +330,12 @@ namespace InventoryManagement0._1
         private System.Windows.Forms.TextBox addresstextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox CitytextBox;
-        private System.Windows.Forms.TextBox Nametxt;
+        private System.Windows.Forms.TextBox Nametxtbox;
         private System.Windows.Forms.TextBox Citytxt;
         private System.Windows.Forms.TextBox SearchtextBox;
-        private System.Windows.Forms.Button Addbutton;
         private System.Windows.Forms.Button Updatebutton;
         private System.Windows.Forms.Button Deletebutton;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }

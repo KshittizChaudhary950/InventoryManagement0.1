@@ -160,5 +160,10 @@ namespace InventoryManagement0._1
             Login l1 = new Login();
             l1.ShowDialog();
         }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

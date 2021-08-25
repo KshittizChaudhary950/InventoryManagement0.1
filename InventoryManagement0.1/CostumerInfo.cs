@@ -29,13 +29,13 @@ namespace InventoryManagement0._1
         void ClearFunction()
         {
             iDnumericUpDown.Value = 0;
-            Nametxt.Clear();
+            Nametxtbox.Clear();
             CompanytextBox.Clear();
             ContacttextBox.Clear();
             addresstextBox.Clear();
             Citytxt.Clear();
 
-            Nametxt.Focus();
+            Nametxtbox.Focus();
 
         }
         public CostumerInfo()
@@ -53,40 +53,7 @@ namespace InventoryManagement0._1
 
         }
 
-        private void Addbutton_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                if (NametextBox.Text != "" && CompanytextBox.Text != "" && ContacttextBox.Text != "" && addresstextBox.Text != "" && CitytextBox.Text != "")
-                {
-                    SqlConnection con = new SqlConnection(cs);
-                    string query = "insert into CostumerInformation(CostumerName,CostumerCompanyName, Contact,Address,city) values(@Name,@company,@contact,@address,@city)";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@Name", Nametxt.Text);
-                    cmd.Parameters.AddWithValue("@company", CompanytextBox.Text);
-                    cmd.Parameters.AddWithValue("@contact", ContacttextBox.Text);
-                    cmd.Parameters.AddWithValue("@address", addresstextBox.Text);
-                    cmd.Parameters.AddWithValue("@city", Citytxt.Text);
-                    con.Open();
-
-                    cmd.ExecuteNonQuery();
-
-                }
-                else
-                {
-                    MessageBox.Show("Please fill all information");
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Unable to add data ");
-
-            }
-            DataGridviewFunction();
-            ClearFunction();
-
-        }
+       
 
         private void label7_Click(object sender, EventArgs e)
         {
@@ -108,7 +75,7 @@ namespace InventoryManagement0._1
                     SqlCommand cmd = new SqlCommand(query, con);
 
                     cmd.Parameters.AddWithValue("@id", iDnumericUpDown.Value);
-                    cmd.Parameters.AddWithValue("@name", Nametxt.Text);
+                    cmd.Parameters.AddWithValue("@name", Nametxtbox.Text);
                     cmd.Parameters.AddWithValue("@company", CompanytextBox.Text);
                     cmd.Parameters.AddWithValue("@contact", ContacttextBox.Text);
                     cmd.Parameters.AddWithValue("@address", addresstextBox.Text);
@@ -139,7 +106,7 @@ namespace InventoryManagement0._1
             try
             {
                 iDnumericUpDown.Value = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells[0].Value.ToString());
-                Nametxt.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
+                Nametxtbox.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
 
                 CompanytextBox.Text = dataGridView1.SelectedRows[0].Cells[2].Value.ToString();
                 ContacttextBox.Text = dataGridView1.SelectedRows[0].Cells[3].Value.ToString();
@@ -223,6 +190,41 @@ namespace InventoryManagement0._1
 
         }
 
+        private void ContacttextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (Nametxtbox.Text != "" && CompanytextBox.Text != "")
+            {
+
+                SqlConnection con = new SqlConnection(cs);
+                string query = "insert into CostumerInfomation(CostumerName,CostumerCompanyName, Contact,Address,city) values(@Name,@company,@contact,@address,@city)";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.Parameters.AddWithValue("@Name", Nametxtbox.Text);
+                cmd.Parameters.AddWithValue("@company", CompanytextBox.Text);
+                cmd.Parameters.AddWithValue("@contact", ContacttextBox.Text);
+                cmd.Parameters.AddWithValue("@address", addresstextBox.Text);
+                cmd.Parameters.AddWithValue("@city", Citytxt.Text);
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Customer is added sucessfully !!" +
+                    "");
+
+
+                DataGridviewFunction();
+                ClearFunction();
+                con.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please fill all field !!");
+            }
+            
+        }
     }
 }
 

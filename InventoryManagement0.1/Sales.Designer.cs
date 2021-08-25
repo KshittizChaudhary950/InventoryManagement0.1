@@ -299,7 +299,7 @@ namespace InventoryManagement0._1
             this.Deletebutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Deletebutton.Location = new System.Drawing.Point(859, 354);
             this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(75, 32);
+            this.Deletebutton.Size = new System.Drawing.Size(209, 32);
             this.Deletebutton.TabIndex = 10;
             this.Deletebutton.Text = "Delete";
             this.Deletebutton.UseVisualStyleBackColor = false;
@@ -313,7 +313,7 @@ namespace InventoryManagement0._1
             this.Savebutton.Name = "Savebutton";
             this.Savebutton.Size = new System.Drawing.Size(209, 31);
             this.Savebutton.TabIndex = 11;
-            this.Savebutton.Text = "Save and print bill";
+            this.Savebutton.Text = "Save ";
             this.Savebutton.UseVisualStyleBackColor = false;
             this.Savebutton.Click += new System.EventHandler(this.Savebutton_Click);
             // 
